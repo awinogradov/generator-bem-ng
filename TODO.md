@@ -5,7 +5,9 @@
 3. Create prompts for include examples (See to *app/templates/app.bundles/.bem/level.js* and *app/index.js*)
 4. Create levels with BEM api (See to [docs](http://ru.bem.info/tools/bem/bem-tools/api/))
 5. Make Gruntfile (bem make -> grunt dist -> bem server)
-6. Painless plugins and libraries connection with Bower
-7. Connect with travis
+6. Add ASCII BEM brand to console log near Yeoman hello
+7. Painless plugins and libraries connection with Bower
 8. Make docs with bem-sets
 9. Add Readme template
+
+_Can not be greater than 10_
