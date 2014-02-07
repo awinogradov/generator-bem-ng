@@ -1,0 +1,13 @@
+.idea
+node_modules
+dist
+.tmp
+.sass-cache
+bower_components
+test/bower_components
+.DS_Store
+.project
+.bem/cache/
+*.bundles/*/*.*
+!*.bundles/*/*.bemjson.js
+!*.bundles/.bem/*

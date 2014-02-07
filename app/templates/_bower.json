@@ -1,0 +1,7 @@
+{
+    "name": "<%= _.slugify(appname) %>",
+    "version": "<%= pkg.version %>",
+    "dependencies": {
+    },
+    "devDependencies": {}
+}
