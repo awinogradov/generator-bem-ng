@@ -7,10 +7,6 @@ var yeoman = require('yeoman-generator');
 var BemGenerator = module.exports = function BemGenerator(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);
 
-  this.on('end', function () {
-    this.installDependencies({ skipInstall: options['skip-install'] });
-  });
-
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
 };
 
@@ -66,4 +62,17 @@ BemGenerator.prototype.app = function app() {
     this.copy('favicon.ico', 'app.resources/favicon.ico');
     this.copy('robots.txt', 'app.resources/robots.txt');
     this.copy('htaccess', 'app.resources/.htaccess');
+};
+
+BemGenerator.prototype.install = function () {
+    if (this.options['skip-install']) {
+        return;
+    }
+
+    var done = this.async();
+    this.installDependencies({
+        skipMessage: this.options['skip-install-message'],
+        skipInstall: this.options['skip-install'],
+        callback: done
+    });
 };
