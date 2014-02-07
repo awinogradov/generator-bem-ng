@@ -53,9 +53,14 @@ BemGenerator.prototype.editorConfig = function editorConfig() {
     this.copy('editorconfig', '.editorconfig');
 };
 
+BemGenerator.prototype.bemMethod = function bemMethod() {
+    this.directory('bem', '.bem');
+    this.directory('app.bundles', 'app.bundles');
+    this.directory('404', 'app.bundles/404');
+    this.directory('app.blocks', 'app.blocks');
+};
+
 BemGenerator.prototype.app = function app() {
-    this.mkdir('app.bundles');
-    this.mkdir('app.blocks');
     this.mkdir('app.resources');
     this.mkdir('app.resources/images');
 
