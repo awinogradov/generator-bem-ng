@@ -24,3 +24,5 @@ If you'd like to get to know Yeoman better and meet some of his friends, [Grunt]
 
 
 ### [MIT](http://en.wikipedia.org/wiki/MIT_License) License
+
+#### Think better. Stay BEMed!
