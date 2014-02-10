@@ -61,12 +61,12 @@ BemGenerator.prototype.bemMethod = function bemMethod() {
 };
 
 BemGenerator.prototype.app = function app() {
-    this.mkdir('app.resources');
-    this.mkdir('app.resources/images');
+    this.mkdir('app.assets');
+    this.mkdir('app.assets/images');
 
-    this.copy('favicon.ico', 'app.resources/favicon.ico');
-    this.copy('robots.txt', 'app.resources/robots.txt');
-    this.copy('htaccess', 'app.resources/.htaccess');
+    this.copy('favicon.ico', 'app.assets/favicon.ico');
+    this.copy('robots.txt', 'app.assets/robots.txt');
+    this.copy('htaccess', 'app.assets/.htaccess');
 };
 
 BemGenerator.prototype.install = function () {
