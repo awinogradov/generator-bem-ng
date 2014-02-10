@@ -1,2 +1,9 @@
-node_modules/
-temp/
+.idea
+node_modules
+.tmp
+.sass-cache
+.DS_Store
+.bem/cache/
+*.bundles/*/*.*
+!*.bundles/*/*.bemjson.js
+!*.bundles/.bem/*
