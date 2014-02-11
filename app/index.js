@@ -45,6 +45,11 @@ BemGenerator.prototype.bower = function bower() {
     this.copy('bowerrc', '.bowerrc');
 }
 
+BemGenerator.prototype.gruntFile = function bower() {
+    this.copy('Gruntfile.js', 'Gruntfile.js');
+    this.template('_project.json', 'project.json');
+}
+
 BemGenerator.prototype.jshint = function jshint() {
     this.copy('jshintrc', '.jshintrc');
 };
@@ -57,6 +62,7 @@ BemGenerator.prototype.bemMethod = function bemMethod() {
     this.directory('bem', '.bem');
     this.directory('app.bundles', 'app.bundles');
     this.directory('404', 'app.bundles/404');
+    this.directory('index', 'app.bundles/index');
     this.directory('app.blocks', 'app.blocks');
 };
 

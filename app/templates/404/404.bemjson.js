@@ -3,9 +3,8 @@
     mods: { type : 'clear' },
     title: 'Page Not Found :(',
     head: [
-        { elem: 'css', url: '_404.css', ie: false },
-        { elem: 'css', url: '_404', ie: true },
-        { elem: 'js', url:'_404.js' }
+        { elem: 'css', url: 'styles/pages.min.css', ie: false },
+        { elem: 'js', url:'scripts/pages.min.js' }
     ],
     content: [
         {
