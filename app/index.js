@@ -73,6 +73,7 @@ BemGenerator.prototype.app = function app() {
     this.copy('favicon.ico', 'app.assets/favicon.ico');
     this.copy('robots.txt', 'app.assets/robots.txt');
     this.copy('htaccess', 'app.assets/.htaccess');
+    this.copy('humans.txt', 'app.assets/humans.txt');
 };
 
 BemGenerator.prototype.install = function () {
