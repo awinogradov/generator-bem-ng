@@ -1,34 +1,44 @@
 'use strict';
-var util = require('util');
-var path = require('path');
-var yeoman = require('yeoman-generator');
+
+var util = require('util'),
+    fs = require('fs-extra'),
+    path = require('path'),
+    join = path.join,
+    BOWER_COMPONENTS = join(process.cwd(), 'bower_components'),
+    ERROR = "This generator can't work without components installation",
+    STUB_CONFIGS = join(BOWER_COMPONENTS, 'project-stub/.bem'),
+    STUB_BUNDLES = join(BOWER_COMPONENTS, 'project-stub/desktop.bundles'),
+    STUB_BLOCKS = join(BOWER_COMPONENTS, 'project-stub/desktop.blocks'),
+    yeoman = require('yeoman-generator');
 
 
 var BemGenerator = module.exports = function BemGenerator(args, options, config) {
-  yeoman.generators.Base.apply(this, arguments);
+    yeoman.generators.Base.apply(this, arguments);
 
-  this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
+    this.options['skip-install-message'] = ERROR;
+
+    this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
 };
 
 util.inherits(BemGenerator, yeoman.generators.Base);
 
 BemGenerator.prototype.askFor = function askFor() {
-  var cb = this.async();
+    var cb = this.async();
 
-  console.log(this.yeoman);
+    console.log(this.yeoman);
 
-  var prompts = [{
-    type: 'confirm',
-    name: 'someOption',
-    message: 'Would you like some BEM?',
-    default: true
-  }];
+    var prompts = [{
+        type: 'confirm',
+        name: 'someOption',
+        message: 'Would you like some BEM?',
+        default: true
+    }];
 
-  this.prompt(prompts, function (props) {
-    this.someOption = props.someOption;
+    this.prompt(prompts, function (props) {
+        this.someOption = props.someOption;
 
-    cb();
-  }.bind(this));
+        cb();
+    }.bind(this));
 };
 
 BemGenerator.prototype.git = function git() {
@@ -58,14 +68,6 @@ BemGenerator.prototype.editorConfig = function editorConfig() {
     this.copy('editorconfig', '.editorconfig');
 };
 
-BemGenerator.prototype.bemMethod = function bemMethod() {
-    this.directory('bem', '.bem');
-    this.directory('app.bundles', 'app.bundles');
-    this.directory('404', 'app.bundles/404');
-    this.directory('index', 'app.bundles/index');
-    this.directory('app.blocks', 'app.blocks');
-};
-
 BemGenerator.prototype.app = function app() {
     this.mkdir('app.assets');
     this.mkdir('app.assets/images');
@@ -81,10 +83,19 @@ BemGenerator.prototype.install = function () {
         return;
     }
 
-    var done = this.async();
-    this.installDependencies({
-        skipMessage: this.options['skip-install-message'],
-        skipInstall: this.options['skip-install'],
-        callback: done
+    var done = function () {
+        this.directory('bem', '.bem');
+        fs.copy(join(STUB_BUNDLES, 'index'), 'app.bundles');
+
+        this.directory('app.blocks', 'app.blocks');
+        this.directory('404', 'app.bundles/404');
+    }
+
+    this.on('end', function () {
+        this.installDependencies({
+            skipMessage: this.options['skip-install-message'],
+            skipInstall: this.options['skip-install'],
+            callback: done.bind(this)
+        });
     });
 };
