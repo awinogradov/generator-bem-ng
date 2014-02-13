@@ -20,8 +20,7 @@ exports.getConfig = function() {
             .map(function(path) { return PATH.resolve(environ.LIB_ROOT, path); })
             // Include custom blocks
             .concat([
-                'app.blocks/common',
-                'app.blocks/desktop'
+                'app.blocks'
             ]
             .map(function(path) { return PATH.resolve(environ.PRJ_ROOT, path); })))
     });

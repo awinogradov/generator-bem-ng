@@ -2,4 +2,4 @@
 
 // Order of assembly: app.bundles/.bem/level.js
 
-exports.baseLevelPath = require.resolve('../../../.bem/levels/blocks.js');
+exports.baseLevelPath = require.resolve('../../.bem/levels/blocks.js');
