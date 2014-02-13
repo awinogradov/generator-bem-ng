@@ -78,17 +78,20 @@ BemGenerator.prototype.app = function app() {
     this.copy('humans.txt', 'app.assets/humans.txt');
 };
 
+BemGenerator.prototype.projectStubStructure = function editorConfig() {
+    this.directory('bem', '.bem');
+    this.directory('app.blocks', 'app.blocks');
+    this.directory('app.bundles/.bem', 'app.bundles/.bem');
+    this.directory('404', 'app.bundles/404');
+};
+
 BemGenerator.prototype.install = function () {
     if (this.options['skip-install']) {
         return;
     }
 
     var done = function () {
-        this.directory('bem', '.bem');
-        fs.copy(join(STUB_BUNDLES, 'index'), 'app.bundles');
-
-        this.directory('app.blocks', 'app.blocks');
-        this.directory('404', 'app.bundles/404');
+        fs.copy(join(STUB_BUNDLES, 'index'), 'app.bundles/index');
     }
 
     this.on('end', function () {
