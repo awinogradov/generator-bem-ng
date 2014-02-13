@@ -1,6 +1,6 @@
 {
     "name" : "<%= _.slugify(appname) %>",
-    "version" : "<%= pkg.version %>",
+    "version" : "0.0.1",
     "cwd" : ".",
     "blocks" : [ "app.blocks" ],
     "bundles" : [ "app.bundles" ],

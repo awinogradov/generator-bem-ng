@@ -1,6 +1,6 @@
 {
     "name": "<%= _.slugify(appname) %>",
-    "version": "<%= pkg.version %>",
+    "version": "0.0.1",
     "description": "Write some words about <%= _.slugify(appname) %>",
     "dependencies": {
         "bem" : "~0.7.6",
