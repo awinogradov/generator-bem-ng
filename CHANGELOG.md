@@ -2,4 +2,6 @@
 - initial release
 
 *0.0.2:*
-- add humans.txt (with bem block for it)
+- merge with project-stub
+- custom level.js for bundles
+- more stable
