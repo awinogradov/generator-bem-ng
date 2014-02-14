@@ -55,15 +55,14 @@ module.exports = function (grunt) {
                     src: "<%= project.bundles %>/**/*.html"
                 }]
             },
-            // Copy assets (favicon, robots.txt and etc)
+            // Copy assets (fonts, images, favicon, robots.txt and etc)
             assets: {
                 files: [{
                     expand: true,
-                    flatten: true,
                     dot: true,
-                    filter: 'isFile',
-                    dest: "<%= project.dist %>/",
-                    src: "<%= project.assets %>/*"
+                    cwd: "<%= project.assets %>/",
+                    src: "**",
+                    dest: "<%= project.dist %>/"
                 }]
             }
         }
