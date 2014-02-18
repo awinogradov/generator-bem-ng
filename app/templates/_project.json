@@ -9,5 +9,7 @@
     "tmp" : ".tmp",
     "favicon" : "favicon.ico",
     "styles" : "dist/styles",
-    "scripts" : "dist/scripts"
+    "scripts" : "dist/scripts",
+    "env" : "dev",
+    "compress" : "no"
 }
