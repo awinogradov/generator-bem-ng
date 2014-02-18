@@ -60,10 +60,10 @@ module.exports = function (grunt) {
                 command: "cat <%= pages.map( function(page) { return project.bundles + '/' + page + '/' + page + '.js' }).join(' ') %> > <%= project.scripts %>/pages.js"
             },
             borschik_csso: {
-                command: "node_modules/.bin/borschik --input <%= project.styles %>/pages.css --output=<%= project.styles %>/pages.min.css --minimize=<%= project.compress %>"
+                command: "node_modules/.bin/borschik -i <%= project.styles %>/pages.css -o <%= project.styles %>/pages.min.css -m <%= project.compress %> -c <%= project.comments %>"
             },
             borschik_uglify: {
-                command: "node_modules/.bin/borschik --input <%= project.scripts %>/pages.js --output=<%= project.scripts %>/pages.min.js --minimize=<%= project.compress %>"
+                command: "node_modules/.bin/borschik -i <%= project.scripts %>/pages.js -o <%= project.scripts %>/pages.min.js -m <%= project.compress %> -c <%= project.comments %>"
             }
         },
 

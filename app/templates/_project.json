@@ -11,5 +11,6 @@
     "styles" : "dist/styles",
     "scripts" : "dist/scripts",
     "env" : "dev",
-    "compress" : "no"
+    "compress" : false,
+    "comments" : true
 }
