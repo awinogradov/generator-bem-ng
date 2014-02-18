@@ -34,6 +34,7 @@ exports.getTechs = function() {
 // Create bundles in bemjson.js tech
 exports.defaultTechs = ['bemjson.js'];
 
+// Blocks inheritance
 exports.getConfig = function() {
 
     return BEM.util.extend(this.__base() || {}, {
