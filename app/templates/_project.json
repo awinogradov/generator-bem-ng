@@ -1,6 +1,6 @@
 {
     "name" : "<%= _.slugify(appname) %>",
-    "version" : "<%= pkg.version %>",
+    "version" : "0.0.1",
     "cwd" : ".",
     "blocks" : [ "app.blocks" ],
     "bundles" : [ "app.bundles" ],
@@ -9,5 +9,8 @@
     "tmp" : ".tmp",
     "favicon" : "favicon.ico",
     "styles" : "dist/styles",
-    "scripts" : "dist/scripts"
+    "scripts" : "dist/scripts",
+    "env" : "dev",
+    "compress" : false,
+    "comments" : true
 }

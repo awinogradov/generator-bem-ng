@@ -13,7 +13,9 @@ var util = require('util'),
 
 
 var BemGenerator = module.exports = function BemGenerator(args, options, config) {
-  yeoman.generators.Base.apply(this, arguments);
+    yeoman.generators.Base.apply(this, arguments);
+
+    this.options['skip-install-message'] = ERROR;
 
   this.options['skip-install-message'] = ERROR;
 
@@ -23,22 +25,22 @@ var BemGenerator = module.exports = function BemGenerator(args, options, config)
 util.inherits(BemGenerator, yeoman.generators.Base);
 
 BemGenerator.prototype.askFor = function askFor() {
-  var cb = this.async();
+    var cb = this.async();
 
-  console.log(this.yeoman);
+    console.log(this.yeoman);
 
-  var prompts = [{
-    type: 'confirm',
-    name: 'someOption',
-    message: 'Would you like some BEM?',
-    default: true
-  }];
+    var prompts = [{
+        type: 'confirm',
+        name: 'someOption',
+        message: 'Would you like some BEM?',
+        default: true
+    }];
 
-  this.prompt(prompts, function (props) {
-    this.someOption = props.someOption;
+    this.prompt(prompts, function (props) {
+        this.someOption = props.someOption;
 
-    cb();
-  }.bind(this));
+        cb();
+    }.bind(this));
 };
 
 BemGenerator.prototype.git = function git() {
@@ -64,6 +66,10 @@ BemGenerator.prototype.jshint = function jshint() {
     this.copy('jshintrc', '.jshintrc');
 };
 
+BemGenerator.prototype.csscomb = function csscomb() {
+    this.copy('_csscomb.json', '.csscomb.json');
+};
+
 BemGenerator.prototype.editorConfig = function editorConfig() {
     this.copy('editorconfig', '.editorconfig');
 };
@@ -78,6 +84,13 @@ BemGenerator.prototype.app = function app() {
     this.copy('humans.txt', 'app.assets/humans.txt');
 };
 
+BemGenerator.prototype.projectStubStructure = function editorConfig() {
+    this.directory('bem', '.bem');
+    this.directory('app.blocks', 'app.blocks');
+    this.directory('app.bundles/.bem', 'app.bundles/.bem');
+    this.directory('404', 'app.bundles/404');
+};
+
 BemGenerator.prototype.install = function () {
     if (this.options['skip-install']) {
         return;
@@ -88,6 +101,7 @@ BemGenerator.prototype.install = function () {
         fs.copy(STUB_BUNDLES, 'app.bundles');
         fs.copy(STUB_BLOCKS, 'app.blocks');
         fs.copy(join(__dirname, 'templates/404'), 'app.bundles/404');
+        fs.copy(join(STUB_BUNDLES, 'index'), 'app.bundles/index');
     }
 
     this.on('end', function () {

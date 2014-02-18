@@ -1,19 +1,42 @@
-'use strict';
+"use strict";
 
 module.exports = function (grunt) {
 
     // Load grunt tasks automatically
-    require('load-grunt-tasks')(grunt);
+    require("load-grunt-tasks")(grunt);
 
     // Time how long tasks take. Can help when optimizing build times
-    require('time-grunt')(grunt);
+    require("time-grunt")(grunt);
 
-    // Define the configuration for all the tasks
+    // Project configuration object
+    var project = grunt.file.readJSON("project.json") || grunt.fatal("project.json not found");
+
+    // Settings for files watcher
+    var pages = [ "index", "404" ],
+        // Tech for watch
+        build_techs = [ "browser.js", "css", "bemhtml", "deps.js", "bemjson.js" ],
+        // Paths for watch
+        watch_paths = function() {
+            return build_techs.map(function(tech) {
+               return "*.blocks/**/{,*/}*." + tech;
+            }).concat("*.bundles/**/*.bemjson.js");
+        };
+
+    // Tasks configuration
     var tasks = {
 
-        project: grunt.file.readJSON('project.json') || grunt.fatal('project.json not found'),
+        project: project,
+        pages: pages,
 
-        pages: [ "index", "404" ],
+        watch: {
+            blocks: {
+                files: watch_paths(),
+                tasks: [ "default" ]
+            },
+            gruntfile: {
+                files: [ "Gruntfile.js" ]
+            }
+        },
 
         bem: {
             options: {
@@ -37,10 +60,10 @@ module.exports = function (grunt) {
                 command: "cat <%= pages.map( function(page) { return project.bundles + '/' + page + '/' + page + '.js' }).join(' ') %> > <%= project.scripts %>/pages.js"
             },
             borschik_csso: {
-                command: "node_modules/.bin/borschik --input <%= project.styles %>/pages.css --output=<%= project.styles %>/pages.min.css --minimize=yes"
+                command: "node_modules/.bin/borschik -i <%= project.styles %>/pages.css -o <%= project.styles %>/pages.min.css -m <%= project.compress %> -c <%= project.comments %>"
             },
             borschik_uglify: {
-                command: "node_modules/.bin/borschik --input <%= project.scripts %>/pages.js --output=<%= project.scripts %>/pages.min.js --minimize=yes"
+                command: "node_modules/.bin/borschik -i <%= project.scripts %>/pages.js -o <%= project.scripts %>/pages.min.js -m <%= project.compress %> -c <%= project.comments %>"
             }
         },
 
@@ -50,36 +73,54 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     flatten: true,
-                    filter: 'isFile',
+                    filter: "isFile",
                     dest: "<%= project.dist %>",
                     src: "<%= project.bundles %>/**/*.html"
                 }]
             },
-            // Copy assets (favicon, robots.txt and etc)
+            // Copy assets (fonts, images, favicon, robots.txt and etc)
             assets: {
                 files: [{
                     expand: true,
-                    flatten: true,
                     dot: true,
-                    filter: 'isFile',
-                    dest: "<%= project.dist %>/",
-                    src: "<%= project.assets %>/*"
+                    cwd: "<%= project.assets %>/",
+                    src: "**",
+                    dest: "<%= project.dist %>/"
                 }]
+            }
+        },
+
+        csscomb: {
+            dist: {
+                options: {
+                    config: '.csscomb.json'
+                },
+                files: {
+                    "<%= project.styles %>/pages.min.css": ["<%= project.styles %>/pages.min.css"]
+                }
             }
         }
     }
 
     grunt.initConfig(tasks);
 
-    grunt.registerTask('default', [
-        'bem:bundles',
-        'copy:bundles',
-        'copy:assets',
-        'exec:mkdirs',
-        'exec:concat_css',
-        'exec:concat_js',
-        'exec:borschik_csso',
-        'exec:borschik_uglify'
+    grunt.registerTask("serve", function(){
+
+        grunt.task.run([
+            "watch"
+        ]);
+
+    });
+
+    grunt.registerTask("default", [
+        "bem:bundles",
+        "copy:bundles",
+        "copy:assets",
+        "exec:mkdirs",
+        "exec:concat_css",
+        "exec:concat_js",
+        "exec:borschik_csso",
+        "exec:borschik_uglify"
     ]);
 };
 

@@ -1,6 +1,6 @@
 {
     "name": "<%= _.slugify(appname) %>",
-    "version": "<%= pkg.version %>",
+    "version": "0.0.1",
     "dependencies": {
         "webapp-bem-example": "git@github.com:verybigman/webapp-bem-example.git",
         "project-stub": "git@github.com:bem/project-stub.git#0fd81dac4f284ca68fcddf2ce57978dc7740008d"
