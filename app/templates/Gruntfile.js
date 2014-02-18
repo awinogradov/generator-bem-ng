@@ -88,6 +88,17 @@ module.exports = function (grunt) {
                     dest: "<%= project.dist %>/"
                 }]
             }
+        },
+
+        csscomb: {
+            dist: {
+                options: {
+                    config: '.csscomb.json'
+                },
+                files: {
+                    "<%= project.styles %>/pages.min.css": ["<%= project.styles %>/pages.min.css"]
+                }
+            }
         }
     }
 

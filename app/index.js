@@ -64,6 +64,10 @@ BemGenerator.prototype.jshint = function jshint() {
     this.copy('jshintrc', '.jshintrc');
 };
 
+BemGenerator.prototype.csscomb = function csscomb() {
+    this.copy('_csscomb.json', '.csscomb.json');
+};
+
 BemGenerator.prototype.editorConfig = function editorConfig() {
     this.copy('editorconfig', '.editorconfig');
 };
