@@ -3,7 +3,9 @@
     "version": "0.0.1",
     "dependencies": {
         "webapp-bem-example": "git@github.com:verybigman/webapp-bem-example.git",
-        "project-stub": "git@github.com:bem/project-stub.git#0fd81dac4f284ca68fcddf2ce57978dc7740008d"
+        "project-stub": "git@github.com:bem/project-stub.git#0fd81dac4f284ca68fcddf2ce57978dc7740008d",
+        "bem-core": "git@github.com:bem/bem-core.git#f4b46ef0590549042d938f7e981df4d14eb4caef",
+        "bem-components": "git@github.com:bem/bem-components.git#82301a8af6c15c2849d1f755a24f594de6522251"
     },
     "devDependencies": {}
 }

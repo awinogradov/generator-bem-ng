@@ -1,6 +1,6 @@
 var PATH = require('path'),
     BEM = require('bem'),
-    environ = require('bem-environ')({ libDir: 'bower_components' }),
+    environ = require('bem-environ')({ libDir: '<%= _.slugify(project.libs) %>' }),
     join = PATH.join,
 
     PRJ_ROOT = environ.PRJ_ROOT,

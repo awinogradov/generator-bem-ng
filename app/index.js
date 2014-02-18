@@ -4,11 +4,7 @@ var util = require('util'),
     fs = require('fs-extra'),
     path = require('path'),
     join = path.join,
-    BOWER_COMPONENTS = join(process.cwd(), 'bower_components'),
     ERROR = "This generator can't work without components installation",
-    STUB_CONFIGS = join(BOWER_COMPONENTS, 'project-stub/.bem'),
-    STUB_BUNDLES = join(BOWER_COMPONENTS, 'project-stub/desktop.bundles'),
-    STUB_BLOCKS = join(BOWER_COMPONENTS, 'project-stub/desktop.blocks'),
     yeoman = require('yeoman-generator');
 
 
@@ -17,9 +13,9 @@ var BemGenerator = module.exports = function BemGenerator(args, options, config)
 
     this.options['skip-install-message'] = ERROR;
 
-  this.options['skip-install-message'] = ERROR;
+    this.options['skip-install-message'] = ERROR;
 
-  this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
+    this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
 };
 
 util.inherits(BemGenerator, yeoman.generators.Base);
@@ -74,7 +70,7 @@ BemGenerator.prototype.editorConfig = function editorConfig() {
     this.copy('editorconfig', '.editorconfig');
 };
 
-BemGenerator.prototype.app = function app() {
+BemGenerator.prototype.appAssets = function editorConfig() {
     this.mkdir('app.assets');
     this.mkdir('app.assets/images');
 
@@ -84,25 +80,28 @@ BemGenerator.prototype.app = function app() {
     this.copy('humans.txt', 'app.assets/humans.txt');
 };
 
-BemGenerator.prototype.projectStubStructure = function editorConfig() {
-    this.directory('bem', '.bem');
-    this.directory('app.blocks', 'app.blocks');
-    this.directory('app.bundles/.bem', 'app.bundles/.bem');
-    this.directory('404', 'app.bundles/404');
-};
-
 BemGenerator.prototype.install = function () {
     if (this.options['skip-install']) {
         return;
     }
 
-    var done = function () {
-        fs.copy(STUB_CONFIGS, '.bem');
-        fs.copy(STUB_BUNDLES, 'app.bundles');
-        fs.copy(STUB_BLOCKS, 'app.blocks');
-        fs.copy(join(__dirname, 'templates/404'), 'app.bundles/404');
-        fs.copy(join(STUB_BUNDLES, 'index'), 'app.bundles/index');
-    }
+    var done = (function () {
+        // TODO: Move it to grunt init task
+//        this.project = JSON.parse(this.readFileAsString('project.json'));
+//        var BOWER_COMPONENTS = join(process.cwd(), this.project.libs),
+//            STUB_CONFIGS = join(BOWER_COMPONENTS, 'project-stub/.bem'),
+//            STUB_BUNDLES = join(BOWER_COMPONENTS, 'project-stub/desktop.bundles'),
+//            STUB_BLOCKS = join(BOWER_COMPONENTS, 'project-stub/desktop.blocks');
+//
+//        fs.copy(STUB_CONFIGS, '.bem');
+//        fs.copy(STUB_BUNDLES, 'app.bundles');
+//        fs.copy(STUB_BLOCKS, 'app.blocks');
+//        fs.copy(join(STUB_BUNDLES, 'index'), join('app.bundles', 'index'));
+//        fs.copy(join(__dirname, 'templates', '404'), join('app.bundles', '404'));
+//
+//        this.template('_make.js', '.bem/make.js');
+//        this.template('_bundles.js', '.bem/levels/bundles.js');
+    })
 
     this.on('end', function () {
         this.installDependencies({

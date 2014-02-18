@@ -104,6 +104,8 @@ module.exports = function (grunt) {
 
     grunt.initConfig(tasks);
 
+    // TODO: Add init task. See todo in app/index.js
+
     grunt.registerTask("serve", function(){
 
         grunt.task.run([
