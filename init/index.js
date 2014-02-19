@@ -4,21 +4,24 @@ var util = require('util'),
     yeoman = require('yeoman-generator'),
     path = require('path'),
     join = path.join,
-    BOWER_COMPONENTS = join(process.cwd(), 'bower_components'),
+    fs = require('fs-extra'),
+    cwd = process.cwd(),
+    libDir = 'bower_components',
+    BOWER_COMPONENTS = join(cwd, libDir),
     STUB = join(BOWER_COMPONENTS, 'project-stub'),
-    STUB_CONFIGS = join(BOWER_COMPONENTS, STUB, '.bem'),
-    STUB_BUNDLES = join(BOWER_COMPONENTS, STUB, 'desktop.bundles'),
-    STUB_BLOCKS = join(BOWER_COMPONENTS, STUB, 'desktop.blocks');
+    STUB_CONFIGS = join(STUB, '.bem'),
+    STUB_BUNDLES = join(STUB, 'desktop.bundles'),
+    STUB_BLOCKS = join(STUB, 'desktop.blocks');
 
 var InitGenerator = module.exports = function InitGenerator(args, options, config) {
 
-    yeoman.generators.NamedBase.apply(this, arguments);
+    yeoman.generators.Base.apply(this, arguments);
 
-    this.libDir = 'bower_components';
+    this.libDir = libDir;
 
 };
 
-util.inherits(InitGenerator, yeoman.generators.NamedBase);
+util.inherits(InitGenerator, yeoman.generators.Base);
 
 InitGenerator.prototype.projectStubStructure = function projectStubStructure() {
 
@@ -27,9 +30,16 @@ InitGenerator.prototype.projectStubStructure = function projectStubStructure() {
     this.directory(STUB_BLOCKS, 'app.blocks');
     this.directory('404', join('app.bundles', '404'));
 
-    this.template('_make.js', '.bem/make.js');
-    this.template('_bundles.js', '.bem/levels/bundles.js');
+    // Remove default files
+    fs.remove(join(cwd, '.bem', 'make.js'));
+    fs.remove(join(cwd, '.bem', 'levels', 'bundles.js'));
+    fs.remove(join(cwd, 'app.bundles', '.bem', 'level.js'));
 
+    // Custom configs
+    // TODO: Make sync after remove defaults
+    this.template('_make.js', join('.bem', 'make.js'));
+    this.template('_bundles.js', join('.bem', 'levels', 'bundles.js'));
+    this.copy('_level.js', join('app.bundles', '.bem', 'level.js'));
 };
 
 InitGenerator.prototype.appAssets = function appAssets() {
