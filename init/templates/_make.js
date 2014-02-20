@@ -1,7 +1,7 @@
 /* jshint node:true */
 /* global MAKE */
 
-var environ = require('bem-environ')({ libDir: '<%= _.slugify(libDir) %>' });
+var environ = require('bem-environ')({ libDir: '<%= libDir %>' });
 
 environ.extendMake(MAKE);
 
