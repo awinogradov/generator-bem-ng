@@ -1,7 +1,6 @@
 /* jshint node:true */
 /* global MAKE */
 
-// override default 'libs' directory for compatibility with Bower
 var environ = require('bem-environ')({ libDir: '<%= _.slugify(libDir) %>' });
 
 environ.extendMake(MAKE);

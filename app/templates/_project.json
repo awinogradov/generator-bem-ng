@@ -2,10 +2,25 @@
     "name" : "<%= _.slugify(appname) %>",
     "version" : "0.0.1",
     "cwd" : ".",
-    "blocks" : [ "app.blocks" ],
-    "bundles" : [ "app.bundles" ],
-    "assets" : [ "app.assets" ],
-    "libs" : "bower_components",
+    "projectLevels" : [
+        "app.common.blocks",
+        "app.desktop.blocks",
+        "app.touch.blocks"
+    ],
+    "projectBundles" : [
+        "app.desktop.bundles"
+    ],
+    "assets" : [
+        "app.assets"
+    ],
+    "libDir" : "bower_components",
+    "libLevels" : [ 
+        "bem-core/common.blocks",
+        "bem-core/desktop.blocks",
+        "bem-components/common.blocks",
+        "bem-components/desktop.blocks",
+        "webapp-bem-example/example.blocks"
+    ],
     "dist" : "dist",
     "tmp" : ".tmp",
     "favicon" : "favicon.ico",

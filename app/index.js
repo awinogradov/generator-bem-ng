@@ -2,8 +2,7 @@
 
 var util = require('util'),
     yeoman = require('yeoman-generator'),
-    path = require('path'),
-    join = path.join;
+    path = require('path'), join = path.join;
 
 var BemGenerator = module.exports = function BemGenerator(args, options, config) {
 
@@ -76,7 +75,7 @@ BemGenerator.prototype.install = function () {
             skipMessage: this.options['skip-install-message'],
             skipInstall: this.options['skip-install'],
             callback: function(){
-                this.invoke("bem:init", {options: {nested: true, appName: this.appName}});
+                this.invoke("bem:init", {options:{nested: true, appName: this.appName}});
             }.bind(this)
         });
     });

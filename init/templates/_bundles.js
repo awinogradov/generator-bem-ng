@@ -40,16 +40,11 @@ exports.getConfig = function() {
     return BEM.util.extend(this.__base() || {}, {
         bundleBuildLevels: this.resolvePaths(
             [
-                'bem-core/common.blocks',
-                'bem-core/desktop.blocks',
-                'bem-components/common.blocks',
-                'bem-components/desktop.blocks',
-                'webapp-bem-example/example.blocks'
+                '<%= libLevels %>'
             ]
             .map(function(path) { return PATH.resolve(environ.LIB_ROOT, path); })
-            // Include custom blocks
             .concat([
-                'app.blocks'
+                '<%= projectLevels %>'
             ]
             .map(function(path) { return PATH.resolve(environ.PRJ_ROOT, path); })))
     });
