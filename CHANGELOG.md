@@ -9,3 +9,10 @@
 *0.0.3:*
 - add watcher for simple development
 - add csscomb tool
+
+*0.0.4:*
+- clone structure from project stub
+- all settings in project.json
+- auto include custom blocks levels
+- auto include libs blocks levels
+- configure libs directory

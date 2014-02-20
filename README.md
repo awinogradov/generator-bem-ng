@@ -13,10 +13,22 @@ To install generator-bem from npm, run:
 $ npm install -g generator-bem
 ```
 
-Finally, initiate the generator:
+Finally, initiate the generator in empty project folder:
 
 ```
 $ yo bem
+```
+
+Open *project.json* and setup your application. Think more here. Them:
+
+```
+$ yo bem:init
+```
+
+And, finely use grunt default task for build dist:
+
+```
+$ grunt
 ```
 
 ## Examples
@@ -26,6 +38,11 @@ Project [repo](https://github.com/verybigman/webapp-bem-example). Also auto firs
 [bem-core](https://github.com/bem/bem-core) and [bem-components](https://github.com/bem/bem-components) libs developed
 by guys from [Yandex](http://yandex.ru).
 Wait more examples in the future.
+
+## Troubles
+
+Now they is hidden. Visible is one: auto build distribution for one bundles level only and *yo bem:init* command too.
+I fix it tomorrow :)
 
 ### Getting to know Yeoman
 
