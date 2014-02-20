@@ -4,7 +4,7 @@ var util = require('util'),
     yeoman = require('yeoman-generator'),
     path = require('path'), join = path.join,
     fs = require('fs-extra'), cwd = process.cwd(),
-    BOWER_COMPONENTS, STUB, STUB_CONFIGS, STUB_BUNDLES, STUB_BLOCKS;
+    BOWER_COMPONENTS, EXAMPLES, STUB, STUB_CONFIGS, STUB_BUNDLES, STUB_BLOCKS;
 
 var InitGenerator = module.exports = function InitGenerator(args, options, config) {
 
@@ -18,6 +18,7 @@ var InitGenerator = module.exports = function InitGenerator(args, options, confi
     this.projectBundles = this.project.projectBundles;
 
     BOWER_COMPONENTS = this.libDir;
+    EXAMPLES = join(cwd, BOWER_COMPONENTS, 'bem-example');
     STUB = join(cwd, BOWER_COMPONENTS, 'project-stub');
     STUB_CONFIGS = join(STUB, '.bem'),
     STUB_BUNDLES = join(STUB, 'desktop.bundles'),
@@ -31,8 +32,11 @@ InitGenerator.prototype.projectStubStructure = function projectStubStructure() {
     this.directory(join(STUB_BUNDLES, 'index'), join('app.desktop.bundles', 'index'));
     this.projectLevelsArray.forEach(function(level){ this.directory(STUB_BLOCKS, level); }.bind(this));
     this.projectLevels = this.projectLevelsArray.join("\', \'");
-    this.directory('404', join('app.desktop.bundles', '404'));
 };
+
+InitGenerator.prototype.examples = function examples() {
+    this.directory(join(EXAMPLES, 'example.bundles', '404'), join('app.desktop.bundles', '404'));
+}
 
 InitGenerator.prototype.removeDefaults = function removeDefaults() {
     fs.remove(join(cwd, '.bem', 'make.js'));

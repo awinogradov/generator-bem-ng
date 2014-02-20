@@ -45,7 +45,7 @@ module.exports = function (grunt) {
             // Build bundles for pages with BEM methodology (bem-tools)
             bundles: {
                 method: "make",
-                targets: "<%= project.bundles %>"
+                targets: "<%= project.projectBundles %>"
             }
         },
 
@@ -54,10 +54,10 @@ module.exports = function (grunt) {
                 command: "mkdir -p <%= project.styles %> && mkdir -p <%= project.scripts %>"
             },
             concat_css: {
-                command: "cat <%= pages.map( function(page) { return project.bundles + '/' + page + '/' + page + '.css' }).join(' ') %> > <%= project.styles %>/pages.css"
+                command: "cat <%= pages.map( function(page) { return project.projectBundles + '/' + page + '/' + page + '.css' }).join(' ') %> > <%= project.styles %>/pages.css"
             },
             concat_js: {
-                command: "cat <%= pages.map( function(page) { return project.bundles + '/' + page + '/' + page + '.js' }).join(' ') %> > <%= project.scripts %>/pages.js"
+                command: "cat <%= pages.map( function(page) { return project.projectBundles + '/' + page + '/' + page + '.js' }).join(' ') %> > <%= project.scripts %>/pages.js"
             },
             borschik_csso: {
                 command: "node_modules/.bin/borschik -i <%= project.styles %>/pages.css -o <%= project.styles %>/pages.min.css -m <%= project.compress %> -c <%= project.comments %>"
@@ -75,7 +75,7 @@ module.exports = function (grunt) {
                     flatten: true,
                     filter: "isFile",
                     dest: "<%= project.dist %>",
-                    src: "<%= project.bundles %>/**/*.html"
+                    src: "<%= project.projectBundles %>/**/*.html"
                 }]
             },
             // Copy assets (fonts, images, favicon, robots.txt and etc)
@@ -103,8 +103,6 @@ module.exports = function (grunt) {
     }
 
     grunt.initConfig(tasks);
-
-    // TODO: Add init task. See todo in app/index.js
 
     grunt.registerTask("serve", function(){
 

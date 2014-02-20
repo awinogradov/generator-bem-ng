@@ -19,7 +19,7 @@
         "bem-core/desktop.blocks",
         "bem-components/common.blocks",
         "bem-components/desktop.blocks",
-        "webapp-bem-example/example.blocks"
+        "bem-example/example.blocks"
     ],
     "dist" : "dist",
     "tmp" : ".tmp",

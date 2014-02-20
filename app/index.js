@@ -74,9 +74,7 @@ BemGenerator.prototype.install = function () {
         this.installDependencies({
             skipMessage: this.options['skip-install-message'],
             skipInstall: this.options['skip-install'],
-            callback: function(){
-                this.invoke("bem:init", {options:{nested: true, appName: this.appName}});
-            }.bind(this)
+            callback: false
         });
     });
 };
