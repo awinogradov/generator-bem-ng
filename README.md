@@ -33,10 +33,9 @@ $ grunt
 
 ## Examples
 
-For fully understanding 'bower_components' directory contain webapp built with bem.
-Project [repo](https://github.com/verybigman/bem-example). Also auto first make project this directory will be contain
-[bem-core](https://github.com/bem/bem-core) and [bem-components](https://github.com/bem/bem-components) libs developed
-by guys from [Yandex](http://yandex.ru).
+For fully understanding 'bower_components' directory contain [webapp](https://github.com/verybigman/bem-example) built
+with bem. Also auto first make project this directory will be contain [bem-core](https://github.com/bem/bem-core)
+and [bem-components](https://github.com/bem/bem-components) libs developed by guys from [Yandex](http://yandex.ru).
 Wait more examples in the future.
 
 ## Troubles
