@@ -44,9 +44,8 @@ Now they is hidden. Visible is one: auto build distribution for one bundles leve
 
 ## Key differences from project-stub
 
-Blocks ordering settings moved from *.bundles/.bem/level.js to .bem/levels/bundles.js/. For compatibility with other
-components, generator-bem use bower_components directory for bem-libs. Customize it here: в .bem/make.js, .bem/levels/*.js.
-For assets generator-bem use app.assets directory.
+Blocks ordering settings moved from \*.bundles/.bem/level.js to .bem/levels/bundles.js/. For compatibility with other
+components, generator-bem use bower_components directory for bem-libs. Customize it here: .bem/make.js, .bem/levels/\*.js.
 
 ### [MIT](http://en.wikipedia.org/wiki/MIT_License) License
 
