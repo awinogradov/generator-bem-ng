@@ -22,13 +22,13 @@ BemGenerator.prototype.askFor = function askFor() {
 
     var prompts = [{
         type: 'confirm',
-        name: 'someOption',
-        message: 'Would you like some BEM?',
+        name: 'includeExamples',
+        message: 'Do you want include BEM examples?',
         default: true
     }];
 
     this.prompt(prompts, function (props) {
-        this.someOption = props.someOption;
+        this.includeExamples = props.includeExamples;
 
         cb();
     }.bind(this));
