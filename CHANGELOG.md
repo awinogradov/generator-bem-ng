@@ -16,3 +16,7 @@
 - auto include custom blocks levels
 - auto include libs blocks levels
 - configure libs directory
+
+*0.0.5:*
+- prompts for include examples
+- project structure auto make
