@@ -7,7 +7,7 @@ for development with another front-end techs and automatic distribution with Gru
 be include tests, js/css hinting, image/svg minimization, install frameworks and plugins for jquery. You can watch
 issues for know about new features and bugs.
 
-## Getting Started
+### Getting Started
 
 To install generator-bem from npm, run:
 
@@ -33,18 +33,18 @@ And, finely use grunt default task for build dist:
 $ grunt
 ```
 
-## Examples
+### Examples
 
 For fully understanding 'bower_components' directory contain [webapp](https://github.com/verybigman/bem-example) built
 with bem. Also auto first make project this directory will be contain [bem-core](https://github.com/bem/bem-core)
 and [bem-components](https://github.com/bem/bem-components) libs developed by guys from [Yandex](http://yandex.ru).
 Wait more examples in the future.
 
-## Troubles
+### Troubles
 
 Now they is hidden. Visible is one: auto build distribution for one bundles level only and *yo bem:init* command too.
 
-## Key differences from project-stub
+### Key differences from project-stub
 
 Blocks ordering settings moved from \*.bundles/.bem/level.js to .bem/levels/bundles.js/. For compatibility with other
 components, generator-bem use bower_components directory for bem-libs. Customize it here: .bem/make.js, .bem/levels/\*.js.
