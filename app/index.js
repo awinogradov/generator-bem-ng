@@ -53,7 +53,6 @@ BemGenerator.prototype.packageJSON = function packageJSON() {
 
 BemGenerator.prototype.bower = function bower() {
     this.template('_bower.json', 'bower.json');
-    this.copy('bowerrc', '.bowerrc');
 }
 
 BemGenerator.prototype.gruntFile = function bower() {
