@@ -1,5 +1,7 @@
 ## We use GitHub workflow
 
+This README also available in [russian](https://github.com/verybigman/generator-bem/blob/master/CONTRIBUTING.ru.md).
+
 You can read more about workflow on GitHub [guides](http://guides.github.com/).
 
 ### How to contribute

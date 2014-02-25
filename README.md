@@ -1,5 +1,7 @@
 # generator-bem [![Build Status](https://secure.travis-ci.org/verybigman/generator-bem.png?branch=master)](https://travis-ci.org/verybigman/generator-bem)
 
+This README also available in [russian](https://github.com/verybigman/generator-bem/blob/master/README.ru.md).
+
 A BEM generator for [Yeoman](http://yeoman.io). Make [project-stub](https://github.com/bem/project-stub) pretty
 for development with another front-end techs and automatic distribution with Grunt. In the future generator will
 be include tests, js/css hinting, image/svg minimization, install frameworks and plugins for jquery. You can watch

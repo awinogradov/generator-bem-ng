@@ -1,3 +1,5 @@
+This CHANGELOG also available in [russian](https://github.com/verybigman/generator-bem/blob/master/CHANGELOG.ru.md).
+
 *0.0.1:*
 - initial release
 
