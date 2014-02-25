@@ -20,16 +20,24 @@ BemGenerator.prototype.askFor = function askFor() {
 
     console.log(this.yeoman);
 
-    var prompts = [{
-        type: 'confirm',
-        name: 'includeExamples',
-        message: 'Do you want include BEM examples?',
-        default: true
-    }];
+    var prompts = [
+        {
+            type: 'confirm',
+            name: 'includeExamples',
+            message: 'Do you want include BEM examples?',
+            default: true
+        },
+        {
+            type: 'confirm',
+            name: 'makeStructure',
+            message: 'Generate project folders structure after install dependencies? Confirm this if you don\'t want customize it.',
+            default: true
+        }
+    ];
 
     this.prompt(prompts, function (props) {
         this.includeExamples = props.includeExamples;
-
+        this.makeStructure = props.makeStructure;
         cb();
     }.bind(this));
 };
@@ -74,7 +82,10 @@ BemGenerator.prototype.install = function () {
         this.installDependencies({
             skipMessage: this.options['skip-install-message'],
             skipInstall: this.options['skip-install'],
-            callback: false
+            callback: function() {
+                if (this.makeStructure) this.invoke('bem:init', {options: {nested: true, appName: this.appName}});
+                else return;
+            }.bind(this)
         });
     });
 };
