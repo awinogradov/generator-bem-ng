@@ -56,7 +56,7 @@ BemGenerator.prototype.bower = function bower() {
 }
 
 BemGenerator.prototype.gruntFile = function bower() {
-    this.copy('Gruntfile.js', 'Gruntfile.js');
+    this.template('_Gruntfile.js', 'Gruntfile.js');
     this.template('_project.json', 'project.json');
 }
 

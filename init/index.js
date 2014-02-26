@@ -38,7 +38,6 @@ InitGenerator.prototype.readme = function readme() {
     this.template('_README.md', 'README.md');
 }
 
-
 InitGenerator.prototype.examples = function examples() {
     // Work only when prompt 'includeExamples' in app/index.js is 'true'
     this.directory(join(EXAMPLES, 'example.bundles', '404'), join('app.desktop.bundles', '404'));
