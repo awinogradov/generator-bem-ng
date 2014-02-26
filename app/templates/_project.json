@@ -27,6 +27,6 @@
     "styles" : "dist/styles",
     "scripts" : "dist/scripts",
     "env" : "dev",
-    "compress" : false,
+    "minimize" : false,
     "comments" : true
 }

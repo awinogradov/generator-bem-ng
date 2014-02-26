@@ -12,7 +12,7 @@ module.exports = function (grunt) {
     var project = grunt.file.readJSON("project.json") || grunt.fatal("project.json not found");
 
     // Settings for files watcher
-    var pages = [ "index", "404" ],
+    var pages = [ "index"<% if (includeExamples) { %>, "404" <% } %>],
         // Tech for watch
         build_techs = [ "browser.js", "css", "bemhtml", "deps.js", "bemjson.js" ],
         // Paths for watch
@@ -45,25 +45,32 @@ module.exports = function (grunt) {
             // Build bundles for pages with BEM methodology (bem-tools)
             bundles: {
                 method: "make",
-                targets: "<%= project.projectBundles %>"
+                targets: "<%%= project.projectBundles %>"
             }
         },
 
-        exec: {
-            mkdirs: {
-                command: "mkdir -p <%= project.styles %> && mkdir -p <%= project.scripts %>"
+        'tree-prepare': {
+            tree: {
+                '.': ['<%%= project.styles %>', '<%%= project.scripts %>']
+            }
+        },
+
+        borschik: {
+            css: {
+                src: pages.map( function(page) { return project.projectBundles + '/' + page + '/' + page + '.css' }),
+                dest: ['<%%= project.styles %>/pages.min.css'],
+                options: {
+                    minimize: project.minimize,
+                    comments: project.comments
+                }
             },
-            concat_css: {
-                command: "cat <%= pages.map( function(page) { return project.projectBundles + '/' + page + '/' + page + '.css' }).join(' ') %> > <%= project.styles %>/pages.css"
-            },
-            concat_js: {
-                command: "cat <%= pages.map( function(page) { return project.projectBundles + '/' + page + '/' + page + '.js' }).join(' ') %> > <%= project.scripts %>/pages.js"
-            },
-            borschik_csso: {
-                command: "node_modules/.bin/borschik -i <%= project.styles %>/pages.css -o <%= project.styles %>/pages.min.css -m <%= project.compress %> -c <%= project.comments %>"
-            },
-            borschik_uglify: {
-                command: "node_modules/.bin/borschik -i <%= project.scripts %>/pages.js -o <%= project.scripts %>/pages.min.js -m <%= project.compress %> -c <%= project.comments %>"
+            js: {
+                src: pages.map( function(page) { return project.projectBundles + '/' + page + '/' + page + '.js' }),
+                dest: ['<%%= project.scripts %>/pages.min.js'],
+                options: {
+                    minimize: project.minimize,
+                    comments: project.comments
+                }
             }
         },
 
@@ -74,8 +81,8 @@ module.exports = function (grunt) {
                     expand: true,
                     flatten: true,
                     filter: "isFile",
-                    dest: "<%= project.dist %>",
-                    src: "<%= project.projectBundles %>/**/*.html"
+                    dest: "<%%= project.dist %>",
+                    src: "<%%= project.projectBundles %>/**/*.html"
                 }]
             },
             // Copy assets (fonts, images, favicon, robots.txt and etc)
@@ -83,9 +90,9 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     dot: true,
-                    cwd: "<%= project.assets %>/",
+                    cwd: "<%%= project.assets %>/",
                     src: "**",
-                    dest: "<%= project.dist %>/"
+                    dest: "<%%= project.dist %>/"
                 }]
             }
         },
@@ -96,7 +103,7 @@ module.exports = function (grunt) {
                     config: '.csscomb.json'
                 },
                 files: {
-                    "<%= project.styles %>/pages.min.css": ["<%= project.styles %>/pages.min.css"]
+                    "<%%= project.styles %>/pages.min.css": ["<%%= project.styles %>/pages.min.css"]
                 }
             }
         }
@@ -116,11 +123,9 @@ module.exports = function (grunt) {
         "bem:bundles",
         "copy:bundles",
         "copy:assets",
-        "exec:mkdirs",
-        "exec:concat_css",
-        "exec:concat_js",
-        "exec:borschik_csso",
-        "exec:borschik_uglify"
+        "tree-prepare:tree",
+        "borschik:css",
+        "borschik:js"
     ]);
 };
 
