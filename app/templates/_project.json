@@ -18,8 +18,8 @@
         "bem-core/common.blocks",
         "bem-core/desktop.blocks",
         "bem-components/common.blocks",
-        "bem-components/desktop.blocks",
-        "bem-example/example.blocks"
+        "bem-components/desktop.blocks"<% if (includeExamples) { %>,
+        "bem-example/example.blocks"<% } %>
     ],
     "dist" : "dist",
     "tmp" : ".tmp",
