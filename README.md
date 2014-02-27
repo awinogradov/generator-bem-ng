@@ -20,14 +20,15 @@ Then, initiate the generator in empty project folder:
 ```
 $ yo bem
 ```
-
-Open *project.json* and setup your application. Think more here. Then:
+If you want to customize your project select 'No' in prompt for project structure auto-generating. Then
+open *project.json*, setup your application and run:
 
 ```
 $ yo bem:init
 ```
 
-And, finely use grunt default task for build dist:
+Else, you can use auto-generated project structure. Use it, if you don't know what are you do.
+Finely use grunt default task for build dist:
 
 ```
 $ grunt
@@ -35,19 +36,17 @@ $ grunt
 
 ### Examples
 
-For fully understanding 'bower_components' directory contain [webapp](https://github.com/verybigman/bem-example) built
-with bem. Also auto first make project this directory will be contain [bem-core](https://github.com/bem/bem-core)
-and [bem-components](https://github.com/bem/bem-components) libs developed by guys from [Yandex](http://yandex.ru).
+In generator prompts you can confirm for installing examples, if you do this 'bower_components' directory
+will be contain [webapp](https://github.com/verybigman/bem-example) built with bem. Also auto first make project
+this directory will be contain [bem-core](https://github.com/bem/bem-core) and
+[bem-components](https://github.com/bem/bem-components) libs developed by guys from [Yandex](http://yandex.ru).
 Wait more examples in the future.
-
-### Troubles
-
-Now they is hidden. Visible is one: auto build distribution for one bundles level only and *yo bem:init* command too.
 
 ### Key differences from project-stub
 
-Blocks ordering settings moved from \*.bundles/.bem/level.js to .bem/levels/bundles.js/. For compatibility with other
-components, generator-bem use bower_components directory for bem-libs. Customize it here: .bem/make.js, .bem/levels/\*.js.
+ - blocks ordering settings moved from \*.bundles/.bem/level.js to .bem/levels/bundles.js/
+ - for compatibility with other components, generator-bem use bower_components directory for bem-libs, customize it here: .bem/make.js, .bem/levels/\*.js
+ - blocks and bundles build from list in levels/bundles.js
 
 ### [MIT](http://en.wikipedia.org/wiki/MIT_License) License
 

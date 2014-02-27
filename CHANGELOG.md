@@ -22,3 +22,8 @@ This CHANGELOG also available in [russian](https://github.com/verybigman/generat
 *0.0.5:*
 - prompts for include examples
 - project structure auto make
+- fixes for Windows, it work fine now
+- array of bundles, main trouble is fixed
+- faster building
+- delete exec methods, work with tools by API
+
