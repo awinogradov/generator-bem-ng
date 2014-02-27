@@ -14,6 +14,7 @@ var InitGenerator = module.exports = function InitGenerator(args, options, confi
     this.project = JSON.parse(this.readFileAsString(path.join(cwd, 'project.json')));
     this.libDir = this.project.libDir;
     this.libLevels = this.project.libLevels.join("\', \'");
+    this.projectLevels = '';
     this.projectLevelsArray = this.project.projectLevels;
     this.projectBundles = this.project.projectBundles;
 
@@ -29,8 +30,17 @@ util.inherits(InitGenerator, yeoman.generators.Base);
 
 InitGenerator.prototype.projectStubStructure = function projectStubStructure() {
     this.directory(STUB_CONFIGS, '.bem');
-    this.directory(join(STUB_BUNDLES, 'index'), join('app.desktop.bundles', 'index'));
-    this.projectLevelsArray.forEach(function(level){ this.directory(STUB_BLOCKS, level); }.bind(this));
+
+    this.projectBundles.forEach(function(bundle) {
+        this.mkdir(bundle);
+    }.bind(this));
+
+    this.directory(join(STUB_BUNDLES, 'index'), join(this.projectBundles[0], 'index'));
+
+    this.projectLevelsArray.forEach(function(level){
+        this.directory(STUB_BLOCKS, level);
+    }.bind(this));
+
     this.projectLevels = this.projectLevelsArray.join("\', \'");
 };
 
@@ -40,7 +50,7 @@ InitGenerator.prototype.readme = function readme() {
 
 InitGenerator.prototype.examples = function examples() {
     // Work only when prompt 'includeExamples' in app/index.js is 'true'
-    this.directory(join(EXAMPLES, 'example.bundles', '404'), join('app.desktop.bundles', '404'));
+    this.directory(join(EXAMPLES, 'example.bundles', '404'), join(this.projectBundles[0], '404'));
 }
 
 InitGenerator.prototype.removeDefaults = function removeDefaults() {
@@ -51,7 +61,11 @@ InitGenerator.prototype.removeDefaults = function removeDefaults() {
 InitGenerator.prototype.customConfigs = function customConfigs() {
     this.template('_make.js', join('.bem', 'make.js'));
     this.template('_bundles.js', join('.bem', 'levels', 'bundles.js'));
-    this.copy('_level.js', join('app.desktop.bundles', '.bem', 'level.js'));
+
+    this.projectBundles.forEach(function(bundle) {
+        this.copy('_level.js', join(bundle, '.bem', 'level.js'));
+    }.bind(this));
+
 };
 
 InitGenerator.prototype.appAssets = function appAssets() {

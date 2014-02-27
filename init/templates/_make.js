@@ -10,9 +10,6 @@ environ.extendMake(MAKE);
 
 MAKE.decl('Arch', {
 
-    blocksLevelsRegexp: /^.+?\.blocks/,
-    bundlesLevelsRegexp: /^.+?\.bundles$/,
-
     libraries: [
         'bem-core @ f4b46ef0590549042d938f7e981df4d14eb4caef',
         'bem-components @ 82301a8af6c15c2849d1f755a24f594de6522251'
