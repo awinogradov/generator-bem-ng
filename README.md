@@ -20,14 +20,14 @@ Then, initiate the generator in empty project folder:
 ```
 $ yo bem
 ```
-If you want to customize your project select 'No' in prompt for project structure auto-generating. Then
+If you want to customize your project select 'No' in prompt for project structure generating. Then
 open *project.json*, setup your application and run:
 
 ```
 $ yo bem:init
 ```
 
-Else, you can use auto-generated project structure. Use it, if you don't know what are you do.
+Else, you can use generated project structure. Use it, if you don't know what are you do.
 Finely use grunt default task for build dist:
 
 ```
