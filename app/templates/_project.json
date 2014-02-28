@@ -15,7 +15,6 @@
         "bem-example/example.blocks"<% } %>
     ],
     "dist" : "dist",
-    "tmp" : ".tmp",
     "favicon" : "favicon.ico",
     "styles" : "dist/styles/styles.min.css",
     "scripts" : "dist/scripts/scripts.min.js",
