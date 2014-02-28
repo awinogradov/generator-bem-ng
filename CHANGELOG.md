@@ -27,3 +27,9 @@ This CHANGELOG also available in [russian](https://github.com/verybigman/generat
 - faster building
 - delete exec methods, work with tools by API
 
+*0.0.6:*
+- simply project structure
+- merged BEM bundle
+- autoprefixer
+- resolve paths for assets from CSS with borschik config
+
