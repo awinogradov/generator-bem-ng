@@ -10,7 +10,7 @@ __Libs__:
 
 __Project__:
 
-- <%= projectLevels.replace(/\', \'/g, "\n- ") %>
+- <%= projectLevel %>
 
 ### Troubles
 
