@@ -14,8 +14,7 @@ var InitGenerator = module.exports = function InitGenerator(args, options, confi
     this.project = JSON.parse(this.readFileAsString(path.join(cwd, 'project.json')));
     this.libDir = this.project.libDir;
     this.libLevels = this.project.libLevels.join("\', \'");
-    this.projectLevels = '';
-    this.projectLevelsArray = this.project.levels;
+    this.projectLevel = this.project.level;
     this.projectBundles = this.project.bundles;
     this.mergedBundle = this.project.mergedBundle;
     this.projectAssets = this.project.assets;
@@ -37,11 +36,7 @@ InitGenerator.prototype.projectStubStructure = function projectStubStructure() {
 
     this.directory(join(STUB_BUNDLES, 'index'), join(this.projectBundles, 'index'));
 
-    this.projectLevelsArray.forEach(function(level){
-        this.directory(STUB_BLOCKS, level);
-    }.bind(this));
-
-    this.projectLevels = this.projectLevelsArray.join("\', \'");
+    this.directory(STUB_BLOCKS, this.projectLevel);
 };
 
 InitGenerator.prototype.readme = function readme() {
@@ -65,4 +60,6 @@ InitGenerator.prototype.appAssets = function appAssets() {
     this.copy('robots.txt', join(this.projectAssets, 'robots.txt'));
     this.copy('htaccess', join(this.projectAssets, '.htaccess'));
     this.copy('humans.txt', join(this.projectAssets, 'humans.txt'));
+
+    this.template('_borschik', '.borschik');
 };

@@ -2,9 +2,7 @@
     "name" : "<%= _.slugify(appname) %>",
     "version" : "0.0.1",
     "cwd" : ".",
-    "levels" : [
-        "blocks"
-    ],
+    "level" : "blocks",
     "bundles" : "bundles",
     "mergedBundle" : "dist",
     "assets" : "assets",

@@ -44,7 +44,7 @@ exports.getConfig = function() {
             ]
             .map(function(path) { return PATH.resolve(environ.LIB_ROOT, path); })
             .concat([
-                '<%= projectLevels %>'
+                '<%= projectLevel %>'
             ]
             .map(function(path) { return PATH.resolve(environ.PRJ_ROOT, path); })))
     });
