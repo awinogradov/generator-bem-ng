@@ -2,17 +2,12 @@
     "name" : "<%= _.slugify(appname) %>",
     "version" : "0.0.1",
     "cwd" : ".",
-    "projectLevels" : [
-        "app.common.blocks",
-        "app.desktop.blocks",
-        "app.touch.blocks"
+    "levels" : [
+        "blocks"
     ],
-    "projectBundles" : [
-        "app.desktop.bundles"
-    ],
-    "assets" : [
-        "app.assets"
-    ],
+    "bundles" : "bundles",
+    "mergedBundle" : "dist",
+    "assets" : "assets",
     "libDir" : "bower_components",
     "libLevels" : [ 
         "bem-core/common.blocks",
@@ -24,8 +19,8 @@
     "dist" : "dist",
     "tmp" : ".tmp",
     "favicon" : "favicon.ico",
-    "styles" : "dist/styles",
-    "scripts" : "dist/scripts",
+    "styles" : "dist/styles/styles.min.css",
+    "scripts" : "dist/scripts/scripts.min.js",
     "env" : "dev",
     "minimize" : false,
     "comments" : true

@@ -5,8 +5,7 @@ var environ = require('bem-environ')({ libDir: '<%= libDir %>' });
 
 environ.extendMake(MAKE);
 
-//process.env.YENV = 'production';
-//process.env.XJST_ASYNCIFY = 'yes';
+process.env.YENV = 'development';
 
 MAKE.decl('Arch', {
 
@@ -41,4 +40,18 @@ MAKE.decl('BundleNode', {
         }, this);
     }
 
+});
+
+
+MAKE.decl('BundlesLevelNode', {
+
+    mergedBundleName: function() {
+        return '<%= mergedBundle %>';
+    },
+
+    buildMergedBundle: function() {
+        if (this.getLevelPath() === '<%= projectBundles %>') return true;
+
+        return false;
+    }
 });

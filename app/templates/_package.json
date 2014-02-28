@@ -18,7 +18,8 @@
         "borschik": "~0.4.2",
         "grunt-borschik": "~0.1.7",
         "grunt-tree-prepare": "~0.9.1",
-        "grunt-csscomb": "~2.0.1"
+        "grunt-csscomb": "~2.0.1",
+        "grunt-autoprefixer": "~0.7.2"
     },
     "engines": {
         "node": ">=0.8.0"

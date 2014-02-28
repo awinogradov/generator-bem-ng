@@ -12,21 +12,19 @@ module.exports = function (grunt) {
     var project = grunt.file.readJSON("project.json") || grunt.fatal("project.json not found");
 
     // Settings for files watcher
-    var pages = [ "index"<% if (includeExamples) { %>, "404" <% } %>],
-        // Tech for watch
-        build_techs = [ "browser.js", "css", "bemhtml", "deps.js", "bemjson.js" ],
+    var build_techs = [ "browser.js", "css", "bemhtml", "deps.js", "bemjson.js" ],
         // Paths for watch
         watch_paths = function() {
             return build_techs.map(function(tech) {
-               return "*.blocks/**/{,*/}*." + tech;
-            }).concat("*.bundles/**/*.bemjson.js");
+               return "blocks/**/{,*/}*." + tech;
+            }).concat("bundles/**/*.bemjson.js");
         };
 
     // Tasks configuration
     var tasks = {
 
         project: project,
-        pages: pages,
+        bundle: project.mergedBundle,
 
         watch: {
             blocks: {
@@ -45,28 +43,28 @@ module.exports = function (grunt) {
             // Build bundles for pages with BEM methodology (bem-tools)
             bundles: {
                 method: "make",
-                targets: project.projectBundles
+                targets: project.bundles
             }
         },
 
         'tree-prepare': {
             tree: {
-                '.': ['<%%= project.styles %>', '<%%= project.scripts %>']
+                '.': ['dist/styles', 'dist/scripts']
             }
         },
 
         borschik: {
             css: {
-                src: pages.map( function(page) { return project.projectBundles + '/' + page + '/' + page + '.css' }),
-                dest: ['<%%= project.styles %>/pages.min.css'],
+                src: "<%%= project.bundles %>/<%%= bundle %>/<%%= bundle %>.css",
+                dest: ['<%%= project.styles %>'],
                 options: {
                     minimize: project.minimize,
                     comments: project.comments
                 }
             },
             js: {
-                src: pages.map( function(page) { return project.projectBundles + '/' + page + '/' + page + '.js' }),
-                dest: ['<%%= project.scripts %>/pages.min.js'],
+                src: "<%%= project.bundles %>/<%%= bundle %>/<%%= bundle %>.js",
+                dest: ['<%%= project.scripts %>'],
                 options: {
                     minimize: project.minimize,
                     comments: project.comments
@@ -82,7 +80,7 @@ module.exports = function (grunt) {
                     flatten: true,
                     filter: "isFile",
                     dest: "<%%= project.dist %>",
-                    src: "<%%= project.projectBundles %>/**/*.html"
+                    src: "<%%= project.bundles %>/**/*.html"
                 }]
             },
             // Copy assets (fonts, images, favicon, robots.txt and etc)
@@ -97,13 +95,23 @@ module.exports = function (grunt) {
             }
         },
 
+        autoprefixer: {
+            options: {
+                browsers: ['last 2 version']
+            },
+            dev: {
+                src: "<%%= project.styles %>",
+                dest: "<%%= project.styles %>"
+            }
+        },
+
         csscomb: {
             dist: {
                 options: {
                     config: '.csscomb.json'
                 },
                 files: {
-                    "<%%= project.styles %>/pages.min.css": ["<%%= project.styles %>/pages.min.css"]
+                    "<%%= project.styles %>": ["<%%= project.styles %>"]
                 }
             }
         }
@@ -125,7 +133,8 @@ module.exports = function (grunt) {
         "copy:assets",
         "tree-prepare:tree",
         "borschik:css",
-        "borschik:js"
+        "borschik:js",
+        "autoprefixer:dev"
     ]);
 };
 
