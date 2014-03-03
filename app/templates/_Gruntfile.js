@@ -36,39 +36,11 @@ module.exports = function (grunt) {
             }
         },
 
+        // Build bundles for pages with BEM methodology (bem-tools)
         bem: {
-            options: {
-                require: "./node_modules/bem"
-            },
-            // Build bundles for pages with BEM methodology (bem-tools)
             bundles: {
                 method: "make",
                 targets: project.bundles
-            }
-        },
-
-        'tree-prepare': {
-            tree: {
-                '.': ['dist/styles', 'dist/scripts']
-            }
-        },
-
-        borschik: {
-            css: {
-                src: "<%%= project.bundles %>/<%%= bundle %>/<%%= bundle %>.css",
-                dest: ['<%%= project.styles %>'],
-                options: {
-                    minimize: project.minimize,
-                    comments: project.comments
-                }
-            },
-            js: {
-                src: "<%%= project.bundles %>/<%%= bundle %>/<%%= bundle %>.js",
-                dest: ['<%%= project.scripts %>'],
-                options: {
-                    minimize: project.minimize,
-                    comments: project.comments
-                }
             }
         },
 
@@ -79,7 +51,7 @@ module.exports = function (grunt) {
                     expand: true,
                     flatten: true,
                     filter: "isFile",
-                    dest: "<%%= project.dist %>",
+                    dest: project.dist,
                     src: "<%%= project.bundles %>/**/*.html"
                 }]
             },
@@ -88,9 +60,17 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     dot: true,
-                    cwd: "<%%= project.assets %>/",
+                    cwd: project.assets,
                     src: "**",
-                    dest: "<%%= project.dist %>/"
+                    dest: project.dist
+                }]
+            },
+            // Copy merged javascript
+            js: {
+                files: [{
+                    flatten: true,
+                    dest: project.scripts,
+                    src: "<%%= project.bundles %>/<%%= bundle %>/<%%= bundle %>.js"
                 }]
             }
         },
@@ -99,8 +79,8 @@ module.exports = function (grunt) {
             options: {
                 browsers: ['last 2 version']
             },
-            dev: {
-                src: "<%%= project.styles %>",
+            css: {
+                src: "<%%= project.bundles %>/<%%= bundle %>/<%%= bundle %>.css",
                 dest: "<%%= project.styles %>"
             }
         },
@@ -111,7 +91,8 @@ module.exports = function (grunt) {
                     config: '.csscomb.json'
                 },
                 files: {
-                    "<%%= project.styles %>": ["<%%= project.styles %>"]
+                    "<%%= project.styles %>":
+                    "<%%= project.styles %>"
                 }
             }
         }
@@ -129,12 +110,13 @@ module.exports = function (grunt) {
 
     grunt.registerTask("default", [
         "bem:bundles",
-        "copy:bundles",
-        "copy:assets",
-        "tree-prepare:tree",
-        "borschik:css",
-        "borschik:js",
-        "autoprefixer:dev"
+        "copy",
+        "autoprefixer:css"
+    ]);
+
+    grunt.registerTask("dist", [
+        "default",
+        "csscomb:dist"
     ]);
 };
 
