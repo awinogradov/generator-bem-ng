@@ -39,8 +39,7 @@ module.exports = function (grunt) {
         // Build bundles for pages with BEM methodology (bem-tools)
         bem: {
             bundles: {
-                method: "make",
-                targets: project.bundles
+                method: "make"
             }
         },
 
