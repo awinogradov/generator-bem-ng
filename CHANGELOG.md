@@ -1,25 +1,21 @@
 This CHANGELOG also available in [russian](https://github.com/verybigman/generator-bem/blob/master/CHANGELOG.ru.md).
 
-*0.0.1:*
-- initial release
+__0.1.0:__
 
-*0.0.2:*
-- merge with project-stub
-- custom level.js for bundles
-- more stable
+- custom index page
+- bem-core 2.0.0 and new bem-components
+- customs levels/blocks config
+- bug fixing
 
-*0.0.3:*
-- add watcher for simple development
-- add csscomb tool
+__0.0.6:__
 
-*0.0.4:*
-- clone structure from project stub
-- all settings in project.json
-- auto include custom blocks levels
-- auto include libs blocks levels
-- configure libs directory
+- simply project structure
+- merged BEM bundle
+- autoprefixer
+- resolve paths for assets from CSS with borschik config
 
-*0.0.5:*
+__0.0.5:__
+
 - prompts for include examples
 - project structure auto make
 - fixes for Windows, it work fine now
@@ -27,9 +23,25 @@ This CHANGELOG also available in [russian](https://github.com/verybigman/generat
 - faster building
 - delete exec methods, work with tools by API
 
-*0.0.6:*
-- simply project structure
-- merged BEM bundle
-- autoprefixer
-- resolve paths for assets from CSS with borschik config
+__0.0.4:__
 
+- clone structure from project stub
+- all settings in project.json
+- auto include custom blocks levels
+- auto include libs blocks levels
+- configure libs directory
+
+__0.0.3:__
+
+- add watcher for simple development
+- add csscomb tool
+
+__0.0.2:__
+
+- merge with project-stub
+- custom level.js for bundles
+- more stable
+
+__0.0.1:__
+
+- initial release
