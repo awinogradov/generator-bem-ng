@@ -1,7 +1,8 @@
 /* jshint node:true */
 /* global MAKE */
 
-var environ = require('bem-environ')({ libDir: '<%= libDir %>' });
+var environ = require('bem-environ')({ libDir: '<%= libDir %>' }),
+    project = require('../project.json');
 
 environ.extendMake(MAKE);
 
@@ -9,6 +10,8 @@ environ.extendMake(MAKE);
 process.env.YENV = 'development';
 
 MAKE.decl('Arch', {
+
+    bundlesLevelsRegexp: project.bundles,
 
     libraries: [
         'bem-core @ v2.0.0',
@@ -47,11 +50,11 @@ MAKE.decl('BundleNode', {
 MAKE.decl('BundlesLevelNode', {
 
     mergedBundleName: function() {
-        return '<%= mergedBundle %>';
+        return project.mergedBundle;
     },
 
     buildMergedBundle: function() {
-        if (this.getLevelPath() === '<%= projectBundles %>') return true;
+        if (this.getLevelPath() === project.bundles ) return true;
 
         return false;
     }
