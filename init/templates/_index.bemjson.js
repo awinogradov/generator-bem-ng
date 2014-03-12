@@ -22,6 +22,7 @@
         },
         {
             elem: 'content',
+            tag: 'main',
             attrs: { role: 'main' },
             content: [
                 'Find this in <%= projectBundles %>/index/index.bemjson.js'
