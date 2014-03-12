@@ -4,7 +4,7 @@
     "cwd" : ".",
     "level" : "blocks",
     "bundles" : "bundles",
-    "mergedBundle" : "dist",
+    "mergedBundle" : "merged",
     "assets" : "assets",
     "libDir" : "bower_components",
     "libLevels" : [ 

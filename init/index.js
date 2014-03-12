@@ -17,7 +17,10 @@ var InitGenerator = module.exports = function InitGenerator(args, options, confi
     this.projectLevel = this.project.level;
     this.projectBundles = this.project.bundles;
     this.mergedBundle = this.project.mergedBundle;
+
     this.projectAssets = this.project.assets;
+    this.projectStyles = this.project.styles.replace(this.project.dist + '/', '');
+    this.projectScripts = this.project.scripts.replace(this.project.dist + '/', '');
 
     BOWER_COMPONENTS = this.libDir;
     EXAMPLES = join(cwd, BOWER_COMPONENTS, 'bem-example');
@@ -32,9 +35,10 @@ util.inherits(InitGenerator, yeoman.generators.Base);
 InitGenerator.prototype.projectStubStructure = function projectStubStructure() {
     this.directory(STUB_CONFIGS, '.bem');
 
-    this.mkdir(this.projectBundles);
+    var index_bundle = join(this.projectBundles, 'index');
+    this.mkdir(index_bundle);
 
-    this.directory(join(STUB_BUNDLES, 'index'), join(this.projectBundles, 'index'));
+    this.template('_index.bemjson.js', join(index_bundle, 'index.bemjson.js'));
 
     this.directory(STUB_BLOCKS, this.projectLevel);
 };
@@ -46,11 +50,13 @@ InitGenerator.prototype.readme = function readme() {
 InitGenerator.prototype.removeDefaults = function removeDefaults() {
     fs.remove(join(cwd, '.bem', 'make.js'));
     fs.remove(join(cwd, '.bem', 'levels', 'bundles.js'));
+    fs.remove(join(cwd, '.bem', 'levels', 'blocks.js'));
 };
 
 InitGenerator.prototype.customConfigs = function customConfigs() {
     this.template('_make.js', join('.bem', 'make.js'));
     this.template('_bundles.js', join('.bem', 'levels', 'bundles.js'));
+    this.template('_blocks.js', join('.bem', 'levels', 'blocks.js'));
     this.copy('_level.js', join(this.projectBundles, '.bem', 'level.js'));
 };
 

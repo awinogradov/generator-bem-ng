@@ -12,7 +12,7 @@ module.exports = function (grunt) {
     var project = grunt.file.readJSON("project.json") || grunt.fatal("project.json not found");
 
     // Settings for files watcher
-    var build_techs = [ "browser.js", "css", "bemhtml", "deps.js", "bemjson.js" ],
+    var build_techs = [ "bemhtml", "css", "js" ],
         // Paths for watch
         watch_paths = function() {
             return build_techs.map(function(tech) {
