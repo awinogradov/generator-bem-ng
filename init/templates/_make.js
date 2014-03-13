@@ -7,7 +7,7 @@ var environ = require('bem-environ')({ libDir: '<%= libDir %>' }),
 environ.extendMake(MAKE);
 
 // Use 'production' for minimize and uglify files with borschik
-process.env.YENV = 'development';
+process.env.YENV = project.env;
 
 MAKE.decl('Arch', {
 

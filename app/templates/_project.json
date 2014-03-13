@@ -17,5 +17,6 @@
     "dist" : "dist",
     "favicon" : "favicon.ico",
     "styles" : "dist/styles/styles.min.css",
-    "scripts" : "dist/scripts/scripts.min.js"
+    "scripts" : "dist/scripts/scripts.min.js",
+    "env" : "development"
 }
