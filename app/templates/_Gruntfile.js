@@ -69,7 +69,7 @@ module.exports = function (grunt) {
                 files: [{
                     flatten: true,
                     dest: project.scripts,
-                    src: "<%%= project.bundles %>/<%%= bundle %>/<%%= bundle %>.js"
+                    src: "<%%= project.bundles %>/<%%= bundle %>/_<%%= bundle %>.js"
                 }]
             }
         },
@@ -79,7 +79,7 @@ module.exports = function (grunt) {
                 browsers: ['last 2 version']
             },
             css: {
-                src: "<%%= project.bundles %>/<%%= bundle %>/<%%= bundle %>.css",
+                src: "<%%= project.bundles %>/<%%= bundle %>/_<%%= bundle %>.css",
                 dest: "<%%= project.styles %>"
             }
         },
