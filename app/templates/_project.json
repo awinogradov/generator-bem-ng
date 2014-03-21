@@ -11,8 +11,7 @@
         "bem-core/common.blocks",
         "bem-core/desktop.blocks",
         "bem-components/common.blocks",
-        "bem-components/desktop.blocks"<% if (includeExamples) { %>,
-        "bem-example/example.blocks"<% } %>
+        "bem-components/desktop.blocks"
     ],
     "dist" : "dist",
     "favicon" : "favicon.ico",

@@ -13,7 +13,6 @@
         "grunt-usemin": "~2.0.0",
         "load-grunt-tasks": "~0.2.0",
         "time-grunt": "~0.2.0",
-        "grunt-spritesmith": "~1.21.2",
         "grunt-bem-revised": "~0.0.1",
         "borschik": "~0.4.2",
         "grunt-csscomb": "~2.0.1",

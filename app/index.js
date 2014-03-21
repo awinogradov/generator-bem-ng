@@ -23,12 +23,6 @@ BemGenerator.prototype.askFor = function askFor() {
     var prompts = [
         {
             type: 'confirm',
-            name: 'includeExamples',
-            message: 'Do you want include BEM examples?',
-            default: true
-        },
-        {
-            type: 'confirm',
             name: 'makeStructure',
             message: 'Generate project folders structure after install dependencies? Confirm this if you don\'t want customize it.',
             default: true
@@ -36,7 +30,6 @@ BemGenerator.prototype.askFor = function askFor() {
     ];
 
     this.prompt(prompts, function (props) {
-        this.includeExamples = props.includeExamples;
         this.makeStructure = props.makeStructure;
         cb();
     }.bind(this));

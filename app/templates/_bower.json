@@ -1,8 +1,7 @@
 {
     "name": "<%= _.slugify(appname) %>",
     "version": "0.0.1",
-    "dependencies": { <% if (includeExamples) { %>
-        "bem-example": "git@github.com:verybigman/bem-example.git",<% } %>
+    "dependencies": {
         "project-stub": "git@github.com:bem/project-stub.git#0fd81dac4f284ca68fcddf2ce57978dc7740008d"
     },
     "devDependencies": {}
