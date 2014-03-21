@@ -1,5 +1,9 @@
 This CHANGELOG also available in [russian](https://github.com/verybigman/generator-bem/blob/master/CHANGELOG.ru.md).
 
+__0.1.1:
+
+- remove examples prompt
+
 __0.1.0:__
 
 - custom index page
