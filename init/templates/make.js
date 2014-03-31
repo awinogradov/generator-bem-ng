@@ -52,7 +52,7 @@ MAKE.decl('BundleNode', {
             // see how in bem-protein/app/blocks/base/page/page.deps.js
             'bem-core/common.blocks',
             //'bem-core/desktop.blocks',
-            //'bem-components/common.blocks',
+            'bem-components/common.blocks',
             //'bem-components/desktop.blocks',
             'bem-protein/app/blocks/base',
             'bem-protein/app/blocks/typo',
