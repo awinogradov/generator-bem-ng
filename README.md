@@ -3,9 +3,8 @@
 This README also available in [russian](https://github.com/verybigman/generator-bem/blob/master/README.ru.md).
 
 A BEM generator for [Yeoman](http://yeoman.io). Make [project-stub](https://github.com/bem/project-stub) pretty
-for development with another front-end techs and automatic distribution with Grunt. In the future generator will
-be include tests, js/css hinting, image/svg minimization, install frameworks and plugins for jquery. You can watch
-issues for know about new features and bugs.
+for development with another front-end techs and automatic distribution with Gulp (tomorrow). In the future generator will
+be include tests, js/css hinting. You can watch issues for know about new features and bugs.
 
 ### Getting Started
 
@@ -20,33 +19,18 @@ Then, initiate the generator in empty project folder:
 ```
 $ yo bem
 ```
-If you want to customize your project select 'No' in prompt for project structure generating. Then
-open *project.json*, setup your application and run:
+
+Finely call bem server:
 
 ```
-$ yo bem:init
+$ bem server
 ```
 
-Else, you can use generated project structure. Use it, if you don't know what are you do.
-Finely use grunt default task for build dist:
+### Inside
 
-```
-$ grunt
-```
-
-### Examples
-
-In generator prompts you can confirm for installing examples, if you do this 'bower_components' directory
-will be contain [webapp](https://github.com/verybigman/bem-example) built with bem. Also auto first make project
-this directory will be contain [bem-core](https://github.com/bem/bem-core) and
-[bem-components](https://github.com/bem/bem-components) libs developed by guys from [Yandex](http://yandex.ru).
-Wait more examples in the future.
-
-### Key differences from project-stub
-
- - blocks ordering settings moved from \*.bundles/.bem/level.js to .bem/levels/bundles.js/
- - for compatibility with other components, generator-bem use bower_components directory for bem-libs, customize it here: .bem/make.js, .bem/levels/\*.js
- - blocks and bundles build from list in levels/bundles.js
+Project contain [bem-core](https://github.com/bem/bem-core), [bem-components](https://github.com/bem/bem-components)
+[bem-pr](https://github.com/bem/bem-pr) libs developed by guys from [Yandex](http://yandex.ru) and framework
+[bem-protein](https://github.com/verybigman/bem-protein) that you use for base of your bem-projects.
 
 ### [MIT](http://en.wikipedia.org/wiki/MIT_License) License
 

@@ -1,5 +1,17 @@
 This CHANGELOG also available in [russian](https://github.com/verybigman/generator-bem/blob/master/CHANGELOG.ru.md).
 
+__0.2.0__:
+
+- remove prompts
+- use configs like bem-core and bem-components
+- use bower for install libs
+- use bower-npm-install for call npm install for every bower component
+- new app structure
+- set to plans distribution with Gulp
+- remove Grunt tasks
+- use bem sever for development
+- use autoprefixer with bem-tools make
+
 __0.1.1:
 
 - remove examples prompt
