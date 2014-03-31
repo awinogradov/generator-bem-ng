@@ -1,51 +1,39 @@
 'use strict';
 
-var util = require('util'),
-    yeoman = require('yeoman-generator'),
-    path = require('path'), join = path.join,
-    fs = require('fs-extra'), cwd = process.cwd(),
-    BOWER_COMPONENTS, EXAMPLES, STUB, STUB_CONFIGS, STUB_BUNDLES, STUB_BLOCKS;
+var fs     = require('fs-extra'),
+    cwd    = process.cwd(),
+    util   = require('util'),
+    path   = require('path'),
+    join   = path.join,
+    yeoman = require('yeoman-generator');
 
 var InitGenerator = module.exports = function InitGenerator(args, options, config) {
 
     yeoman.generators.Base.apply(this, arguments);
 
-    // Require vars for templates
-    this.project = JSON.parse(this.readFileAsString(path.join(cwd, 'project.json')));
-    this.libDir = this.project.libDir;
-    this.libLevels = this.project.libLevels.join("\', \'");
-    this.projectLevel = this.project.level;
-    this.projectBundles = this.project.bundles;
-    this.mergedBundle = this.project.mergedBundle;
-
-    this.projectAssets = this.project.assets;
-    this.projectStyles = this.project.styles.replace(this.project.dist + '/', '');
-    this.projectScripts = this.project.scripts.replace(this.project.dist + '/', '');
-
-    BOWER_COMPONENTS = this.libDir;
-    EXAMPLES = join(cwd, BOWER_COMPONENTS, 'bem-example');
-    STUB = join(cwd, BOWER_COMPONENTS, 'project-stub');
-    STUB_CONFIGS = join(STUB, '.bem'),
-    STUB_BUNDLES = join(STUB, 'desktop.bundles'),
-    STUB_BLOCKS = join(STUB, 'desktop.blocks');
+    // require vars for templates
+    this.pkg = JSON.parse(this.readFileAsString(path.join(cwd, 'project.json')))._settings;
+    this.stubConfigs = join(cwd, this.pkg.libs, 'project-stub', '.bem');
 };
 
 util.inherits(InitGenerator, yeoman.generators.Base);
 
-InitGenerator.prototype.projectStubStructure = function projectStubStructure() {
-    this.directory(STUB_CONFIGS, '.bem');
+InitGenerator.prototype.appStructure = function projectStubStructure() {
+    // copy configs from project-stub
+    this.directory(this.stubConfigs, '.bem');
 
-    var index_bundle = join(this.projectBundles, 'index');
-    this.mkdir(index_bundle);
+    // make folders tree for bundles
+    this.mkdir(join(this.pkg.root, this.pkg.bundles, 'index'));
+    // add index bundle for example
+    this.copy('index.bemjson.js', join(index_bundle, 'index.bemjson.js'));
+    // fix for bundles. This remove warns from console
+    this.directory('bundles_fix', join(this.pkg.root, this.pkg.bundles, 'index'));
 
-    this.template('_index.bemjson.js', join(index_bundle, 'index.bemjson.js'));
-
-    this.directory(STUB_BLOCKS, this.projectLevel);
+    // make folders tree for blocks
+    this.mkdir(join(this.pkg.root, this.pkg.blocks, 'typography'));
+    // add blocks for example
+    this.directory('blocks_fix', join(this.pkg.root, this.pkg.blocks, 'typography'));
 };
-
-InitGenerator.prototype.readme = function readme() {
-    this.template('_README.md', 'README.md');
-}
 
 InitGenerator.prototype.removeDefaults = function removeDefaults() {
     fs.remove(join(cwd, '.bem', 'make.js'));
@@ -54,18 +42,19 @@ InitGenerator.prototype.removeDefaults = function removeDefaults() {
 };
 
 InitGenerator.prototype.customConfigs = function customConfigs() {
-    this.template('_make.js', join('.bem', 'make.js'));
-    this.template('_bundles.js', join('.bem', 'levels', 'bundles.js'));
-    this.template('_blocks.js', join('.bem', 'levels', 'blocks.js'));
-    this.copy('_level.js', join(this.projectBundles, '.bem', 'level.js'));
+    this.copy('make.js', join('.bem', 'make.js'));
+    this.copy('bundles.js', join('.bem', 'levels', 'bundles.js'));
+    this.copy('blocks.js', join('.bem', 'levels', 'blocks.js'));
+    this.copy('level.js', join(this.pkg.root, this.pkg.bundles, '.bem', 'level.js'));
 };
 
-InitGenerator.prototype.appAssets = function appAssets() {
-    this.mkdir(join(this.projectAssets, 'images', 'icons'));
-    this.copy(join(STUB, 'favicon.ico'), join(this.projectAssets, 'favicon.ico'));
-    this.copy('robots.txt', join(this.projectAssets, 'robots.txt'));
-    this.copy('htaccess', join(this.projectAssets, '.htaccess'));
-    this.copy('humans.txt', join(this.projectAssets, 'humans.txt'));
+InitGenerator.prototype.app = function appAssets() {
+    this.copy(join(STUB, 'favicon.ico'), join(this.pkg.root, 'favicon.ico'));
+    this.copy('robots.txt', join(this.pkg.root, 'robots.txt'));
+    this.copy('htaccess', join(this.pkg.root, '.htaccess'));
+    this.copy('humans.txt', join(this.pkg.root, 'humans.txt'));
+};
 
-    this.template('_borschik', '.borschik');
+InitGenerator.prototype.readme = function readme() {
+    this.copy('_README.md', 'README.md');
 };

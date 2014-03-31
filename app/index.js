@@ -1,8 +1,9 @@
 'use strict';
 
-var util = require('util'),
-    yeoman = require('yeoman-generator'),
-    path = require('path'), join = path.join;
+var util   = require('util'),
+    path   = require('path'),
+    join   = path.join,
+    yeoman = require('yeoman-generator');
 
 var BemGenerator = module.exports = function BemGenerator(args, options, config) {
 
@@ -20,50 +21,29 @@ BemGenerator.prototype.askFor = function askFor() {
 
     console.log(this.yeoman);
 
-    var prompts = [
-        {
-            type: 'confirm',
-            name: 'makeStructure',
-            message: 'Generate project folders structure after install dependencies? Confirm this if you don\'t want customize it.',
-            default: true
-        }
-    ];
+    // TODO: Add question about preprocessors: SASS and Stylus; LESS is very slow now
+    // TODO: Add question about add MVC: EmberJS, AngularJS, bem-mvc
 
     this.prompt(prompts, function (props) {
-        this.makeStructure = props.makeStructure;
         cb();
     }.bind(this));
 };
 
-BemGenerator.prototype.git = function git() {
+BemGenerator.prototype.dots = function git() {
     this.copy('gitignore', '.gitignore');
     this.copy('gitattributes', '.gitattributes');
-};
-
-BemGenerator.prototype.packageJSON = function packageJSON() {
-    this.template('_package.json', 'package.json');
-}
-
-BemGenerator.prototype.bower = function bower() {
-    this.template('_bower.json', 'bower.json');
-}
-
-BemGenerator.prototype.gruntFile = function bower() {
-    this.template('_Gruntfile.js', 'Gruntfile.js');
-    this.template('_project.json', 'project.json');
-}
-
-BemGenerator.prototype.jshint = function jshint() {
-    this.copy('jshintrc', '.jshintrc');
-};
-
-BemGenerator.prototype.csscomb = function csscomb() {
-    this.copy('_csscomb.json', '.csscomb.json');
-};
-
-BemGenerator.prototype.editorConfig = function editorConfig() {
     this.copy('editorconfig', '.editorconfig');
 };
+
+BemGenerator.prototype.packages = function packageJSON() {
+    this.template('_package.json', 'package.json');
+    this.template('_bower.json', 'bower.json');
+};
+
+// TODO: Make Gulp task for distribution
+// BemGenerator.prototype.gulp = function bower() {
+//     this.template('_gulpfile.js', 'gulpfile.js');
+// }
 
 BemGenerator.prototype.install = function () {
     if (this.options['skip-install']) {
@@ -75,8 +55,7 @@ BemGenerator.prototype.install = function () {
             skipMessage: this.options['skip-install-message'],
             skipInstall: this.options['skip-install'],
             callback: function() {
-                if (this.makeStructure) this.invoke('bem:init', {options: {nested: true, appName: this.appName}});
-                else return;
+                this.invoke('bem:init', {options: {nested: true, appName: this.appName}});
             }.bind(this)
         });
     });
