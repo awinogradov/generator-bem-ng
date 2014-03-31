@@ -1,20 +1,23 @@
-var PATH = require('path'),
-    environ = require('bem-environ')({ libDir: '<%= libDir %>' }),
-    join = PATH.join,
+var pkg     = require('../../package.json')._settings,
+    join    = require('path').join,
+    environ = require('bem-environ'),
 
-    PRJ_ROOT = environ.PRJ_ROOT,
-    PRJ_TECHS = join(PRJ_ROOT, '.bem/techs'),
-    BEMCORE_TECHS = environ.getLibPath('bem-core', '.bem/techs');
+    PRJ_ROOT    = environ.PRJ_ROOT,
+    LIBS_PATH   = join(PRJ_ROOT, pkg.libs),
+    TECHS_PATH  = join('.bem', 'techs'),
+    PRJ_TECHS   = join(PRJ_ROOT, TECHS_PATH),
+    BEM_TECHS   = join(LIBS_PATH, 'bem-techs', TECHS_PATH);
 
 exports.getTechs = function() {
 
     return {
-        'vanilla.js'    : join(BEMCORE_TECHS, 'vanilla.js.js'),
-        'browser.js'    : join(BEMCORE_TECHS, 'browser.js.js'),
-        'css'           : 'v2/css',
-        'bemhtml'       : join(BEMCORE_TECHS, 'bemhtml.js')
+        'bemhtml' : join(BEM_TECHS, 'bemhtml.js'),
+        'js'      : 'v2/js-i.js',
+        'deps.js' : 'v2/deps.js',
+        'css'     : 'v2/css.js',
+        'md'      : join(BEM_TECHS, 'md.js')
     };
 
 };
 
-exports.defaultTechs = ['css', 'browser.js', 'bemhtml'];
+exports.defaultTechs = ['css', 'js', 'bemhtml', 'md'];

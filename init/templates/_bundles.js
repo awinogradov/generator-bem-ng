@@ -1,52 +1,27 @@
-var PATH = require('path'),
-    BEM = require('bem'),
-    environ = require('bem-environ')({ libDir: '<%= libDir %>' }),
-    join = PATH.join,
+var pkg     = require('../../package.json')._settings,
+    join    = require('path').join,
+    environ = require('bem-environ'),
 
-    PRJ_ROOT = environ.PRJ_ROOT,
-    PRJ_TECHS = join(PRJ_ROOT, '.bem/techs'),
-    BEMCORE_TECHS = environ.getLibPath('bem-core', '.bem/techs');
+    PRJ_ROOT        = environ.PRJ_ROOT,
+    LIBS_PATH       = join(PRJ_ROOT, pkg.libs),
+    TECHS_PATH      = join('.bem', 'techs'),
+    PRJ_TECHS       = join(PRJ_ROOT, TECHS_PATH),
+    BEM_TECHS       = join(LIBS_PATH, 'bem-techs', TECHS_PATH),
+    BEMCORE_TECHS   = join(LIBS_PATH, 'bem-core', TECHS_PATH);
 
 exports.getTechs = function() {
 
     return {
-        'bemjson.js'         : join(PRJ_TECHS, 'bemjson.js'),
-        'bemdecl.js'         : 'v2/bemdecl.js',
-        'deps.js'            : 'v2/deps.js',
-        'js'                 : 'v2/js-i',
-        'vanilla.js'         : join(BEMCORE_TECHS, 'vanilla.js.js'),
-        'browser.js'         : join(BEMCORE_TECHS, 'browser.js.js'),
-        'browser.js+bemhtml' : join(BEMCORE_TECHS, 'browser.js+bemhtml.js'),
-        'css'                : 'v2/css',
-        'ie.css'             : 'v2/ie.css',
-        'ie6.css'            : 'v2/ie6.css',
-        'ie7.css'            : 'v2/ie7.css',
-        'ie8.css'            : 'v2/ie8.css',
-        'ie9.css'            : 'v2/ie9.css',
-
-        'bemhtml'            : join(BEMCORE_TECHS, 'bemhtml.js'),
-        'html'               : join(BEMCORE_TECHS, 'html.js')
+        'bemjson.js' : join(BEM_TECHS, 'bemjson.js'),
+        'bemdecl.js' : 'v2/bemdecl.js',
+        'deps.js'    : 'v2/deps.js',
+        'js'         : 'v2/js-i.js',
+        'css'        : 'v2/css.js',
+        'bemhtml'    : join(BEMCORE_TECHS, 'bemhtml.js'),
+        'html'       : join(BEMCORE_TECHS, 'html.js')
     };
 
 };
 
-
-// Create bundles in bemjson.js tech
 exports.defaultTechs = ['bemjson.js'];
 
-// Blocks inheritance
-exports.getConfig = function() {
-
-    return BEM.util.extend(this.__base() || {}, {
-        bundleBuildLevels: this.resolvePaths(
-            [
-                '<%= libLevels %>'
-            ]
-            .map(function(path) { return PATH.resolve(environ.LIB_ROOT, path); })
-            .concat([
-                '<%= projectLevel %>'
-            ]
-            .map(function(path) { return PATH.resolve(environ.PRJ_ROOT, path); })))
-    });
-
-};

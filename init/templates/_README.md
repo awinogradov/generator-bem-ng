@@ -2,16 +2,6 @@
 
 Please, write some description information here.
 
-### Levels
-
-__Libs__:
-
-- <%= libLevels.replace(/\', \'/g, "\n- ") %>
-
-__Project__:
-
-- <%= projectLevel %>
-
 ### Troubles
 
 If your project have problems, talk about them here.

@@ -8,6 +8,6 @@ test/bower_components
 .DS_Store
 .project
 .bem/cache/
-*.bundles/*/*.*
-!*.bundles/*/*.bemjson.js
-!*.bundles/.bem/*
+app/bundles/*/*.*
+!app/bundles/*/*.bemjson.js
+!app/bundles/.bem/*

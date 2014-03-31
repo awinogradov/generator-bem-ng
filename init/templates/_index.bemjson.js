@@ -1,11 +1,9 @@
 ({
     block: 'page',
     title: 'Yeoman BEM',
-    favicon: '/favicon.ico',
-    head: [
-        { elem: 'css', url: '<%= projectStyles %>', ie: false },
-        { elem: 'meta', attrs: { name: 'description', content: '' }}
-    ],
+    favicon: '../../favicon.ico',
+    head: [{ elem: 'meta', attrs: { name: 'description', content: '' }}],
+    styles: [{ elem: 'css', url: '_index.prefix.css', ie: false }],
     content:[
         {
             elem: 'header',
@@ -25,7 +23,7 @@
             tag: 'main',
             attrs: { role: 'main' },
             content: [
-                'Find this in <%= projectBundles %>/index/index.bemjson.js'
+                'Find this in app/bundles/index/index.bemjson.js'
             ]
         },
         {
@@ -41,7 +39,7 @@
                     ]
                 }
             ]
-        },
-        { elem: 'js', url: '<%= projectScripts %>' }
-    ]
+        }
+    ],
+    scripts: [{ elem: 'js', url: '_index.js' }]
 })
