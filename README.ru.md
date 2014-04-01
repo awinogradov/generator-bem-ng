@@ -1,6 +1,6 @@
 # generator-bem [![Build Status](https://secure.travis-ci.org/verybigman/generator-bem.png?branch=master)](https://travis-ci.org/verybigman/generator-bem)
 
-Генератор БЭМ-проектов [Yeoman](http://yeoman.io). Делает [project-stub](https://github.com/bem/project-stub) немного лучше
+Генератор БЭМ-проектов [Yeoman](http://yeoman.io). Делает bem-проекты немного лучше
 для разработки совместно с другими популярными технологиями и автоматической сборкой через Gulp(в ближайшее время).
 В ближайшем будущем генератор будет включать тесты, валидацию js/css. Следите за issues, чтобы быть в курсе
 ближайших планов и известных багов.

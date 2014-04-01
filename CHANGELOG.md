@@ -1,5 +1,10 @@
 This CHANGELOG also available in [russian](https://github.com/verybigman/generator-bem/blob/master/CHANGELOG.ru.md).
 
+__0.2.1__:
+
+- delete depends on project-stub
+- small refactoring
+
 __0.2.0__:
 
 - remove prompts
