@@ -27,9 +27,7 @@ BemGenerator.prototype.askFor = function askFor() {
 };
 
 BemGenerator.prototype.dots = function git() {
-    this.copy('gitignore', '.gitignore');
-    this.copy('gitattributes', '.gitattributes');
-    this.copy('editorconfig', '.editorconfig');
+    this.directory('dots', cwd);
 };
 
 BemGenerator.prototype.packages = function packageJSON() {

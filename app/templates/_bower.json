@@ -2,7 +2,6 @@
     "name": "<%= _.slugify(appname) %>",
     "version": "0.0.1",
     "dependencies": {
-        "project-stub": "git@github.com:bem/project-stub.git#3202c9a81e650098e9039a50a6e6de2443f55c6c",
         "bem-core": "git://github.com/bem/bem-core.git#v2",
         "bem-components": "git://github.com/bem/bem-components.git#79ca4740c605339941e2a560c6681bfea02f00b3",
         "bem-techs": "git://github.com/verybigman/bem-techs.git",
