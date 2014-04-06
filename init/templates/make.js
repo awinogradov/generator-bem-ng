@@ -51,7 +51,8 @@ MAKE.decl('BundleNode', {
             // bem-core without i-bem.js
             // see how in bem-protein/app/blocks/base/page/page.deps.js
             'bem-core/common.blocks',
-            // Uncomment for more details in blocks:
+            // You can also install bem-components (use bower-npm-install)
+            // and uncomment next lines for using i-bem.js blocks
             //'bem-components/common.blocks',
             //'bem-components/desktop.blocks',
             'bem-protein/app/blocks/base',

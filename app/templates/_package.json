@@ -1,6 +1,6 @@
 {
     "name": "<%= _.slugify(appname) %>",
-    "version": "0.0.1",
+    "version": "0.0.0",
     "description": "Write some words about <%= _.slugify(appname) %>",
     "private": true,
     "homepage": "https://github.com/username/repository",
