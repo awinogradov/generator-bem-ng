@@ -33,7 +33,7 @@ MAKE.decl('BundleNode', {
             'deps.js',
             'bemhtml',
             'js',
-            'css',
+            'scss',
             'prefix.css',
             'html'
         ];
@@ -41,7 +41,7 @@ MAKE.decl('BundleNode', {
 
     // techs in parallel processes
     getForkedTechs : function() {
-        return this.__base().concat(['js', 'css']);
+        return this.__base().concat(['js', 'scss']);
     },
 
     // levels for build
@@ -52,32 +52,28 @@ MAKE.decl('BundleNode', {
             // see how in bem-protein/app/blocks/base/page/page.deps.js
             'bem-core/common.blocks',
             // Uncomment for more details in blocks:
-            //'bem-core/desktop.blocks',
-            'bem-components/common.blocks',
-            // Uncomment for more details in blocks:
+            //'bem-components/common.blocks',
             //'bem-components/desktop.blocks',
             'bem-protein/app/blocks/base',
             'bem-protein/app/blocks/typo',
-            'bem-protein/app/blocks/grid'
-            // Uncomment for more experience:
-            // Under development:
-            //'bem-protein/app/blocks/buttons',
-            //'bem-protein/app/blocks/forms',
-            //'bem-protein/app/blocks/navigation',
-            //'bem-protein/app/blocks/lists',
-            //'bem-protein/app/blocks/tables',
-            //'bem-protein/app/blocks/wrappers',
-            //'bem-protein/app/blocks/windows',
-            //'bem-protein/app/blocks/progress',
-            //'bem-protein/app/blocks/js'
+            'bem-protein/app/blocks/grid',
+            'bem-protein/app/blocks/buttons',
+            'bem-protein/app/blocks/forms',
+            'bem-protein/app/blocks/navigation',
+            'bem-protein/app/blocks/lists',
+            'bem-protein/app/blocks/tables',
+            'bem-protein/app/blocks/wrappers',
+            'bem-protein/app/blocks/windows',
+            'bem-protein/app/blocks/progress',
+            'bem-protein/app/blocks/js'
         ]
         .map(function(level) { return path.resolve(LIBS_PATH, level); })
         // this project levels
         .concat([
             // declare your blocks here like this:
-            // 'common.blocks'
-            // 'touch.blocks'
-            // 'yet.blocks'
+            // 'menu'
+            // 'alerts'
+            // 'yet'
         ]
         .map(function(level) { return path.resolve(BLOCKS_PATH, level); }));
     },

@@ -29,7 +29,8 @@
         "bem-tools-autoprefixer": "0.0.2",
         "bem-cli": "~1.0.1",
         "gulp": "~3.6.0",
-        "gulp-if": "0.0.5"
+        "gulp-if": "0.0.5",
+        "node-sass": "~0.8.4"
     },
     "engines": {
         "node": ">=0.8.0"

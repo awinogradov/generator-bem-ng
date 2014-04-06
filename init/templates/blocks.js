@@ -14,10 +14,10 @@ exports.getTechs = function() {
         'bemhtml' : join(BEM_TECHS, 'bemhtml.js'),
         'js'      : 'v2/js-i.js',
         'deps.js' : 'v2/deps.js',
-        'css'     : 'v2/css.js',
+        'scss'    : join(BEM_TECHS, 'scss.js'),
         'md'      : join(BEM_TECHS, 'md.js')
     };
 
 };
 
-exports.defaultTechs = ['css', 'js', 'bemhtml', 'md'];
+exports.defaultTechs = ['scss', 'js', 'bemhtml', 'md'];
