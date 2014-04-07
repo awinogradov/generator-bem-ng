@@ -1,7 +1,7 @@
 ({
     block: 'page',
     title: 'Yeoman BEM',
-    favicon: '../../favicon.ico',
+    favicon: 'favicon.ico',
     head: [{ elem: 'meta', attrs: { name: 'description', content: '' }}],
     styles: [{ elem: 'css', url: '_index.prefix.css', ie: false }],
     content:[

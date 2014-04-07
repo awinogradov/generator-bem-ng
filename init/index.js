@@ -19,6 +19,8 @@ util.inherits(InitGenerator, yeoman.generators.Base);
 InitGenerator.prototype.appTree = function appTree() {
     // make folders tree
     this.directory('app', this.pkg.root);
+    // make public directory development real project
+    this.directory('public', this.pkg.root);
 };
 
 // If this files move to directory and copy directory, bem make don't work.
