@@ -12,15 +12,17 @@ var InitGenerator = module.exports = function InitGenerator(args, options, confi
     yeoman.generators.Base.apply(this, arguments);
 
     this.pkg = JSON.parse(this.readFileAsString(join(cwd, 'package.json')))._settings;
+
+    this.on('end', function () {
+        this.log.write('').ok('Done!');
+        setTimeout(process.exit, 0, 0);
+    });
 };
 
 util.inherits(InitGenerator, yeoman.generators.Base);
 
 InitGenerator.prototype.appTree = function appTree() {
-    // make folders tree
-    this.directory('app', this.pkg.root);
-    // make public directory development real project
-    this.directory('public', this.pkg.root);
+    this.directory('tree', cwd);
 };
 
 // If this files move to directory and copy directory, bem make don't work.

@@ -5,8 +5,8 @@ var pkg     = require('../package.json')._settings,
 
     PRJ_ROOT     = environ.PRJ_ROOT,
     LIBS_PATH    = join(PRJ_ROOT, pkg.libs),
-    BLOCKS_PATH  = join(PRJ_ROOT, pkg.root, pkg.blocks),
-    BUNDLES_PATH = join(pkg.root, pkg.bundles);
+    BLOCKS_PATH  = join(PRJ_ROOT, pkg.blocks),
+    BUNDLES_PATH = pkg.bundles;
 
 // npm package with tech for autoprefixer
 // more info here: https://github.com/bem/bem-tools-autoprefixer

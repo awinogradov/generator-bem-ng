@@ -1,6 +1,6 @@
 # <%= _.slugify(appname) %>
 
-Please, write some description information here.
+Please, write some description here.
 
 ### Troubles
 
@@ -8,7 +8,7 @@ If your project have problems, talk about them here.
 
 ### Contributing
 
-1. [Create an issue](#) with description or take from available.
+1. [Create an issue](https://github.com/<%= username %>/<%= _.slugify(appname) %>/issues) with description or take from available.
 2. Create a feature-branch with an issue number based on a master branch. For example, for an issue #42: `git checkout -b feature/issue@42`.
 3. Commit changes and `push` your branch.
 4. Create a pull-request from your feature branch.

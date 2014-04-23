@@ -10,21 +10,13 @@ var BemGenerator = module.exports = function BemGenerator(args, options, config)
 
     yeoman.generators.Base.apply(this, arguments);
 
-    this.options['skip-install-message'] = "This generator can't work without components installation";
+    this.pkg      = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
+    this.email    = this.user.git.email;
+    this.username = this.user.git.username || this.shell.exec('whoami').output.trim();
 
-    this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
 };
 
 util.inherits(BemGenerator, yeoman.generators.Base);
-
-BemGenerator.prototype.askFor = function askFor() {
-
-    console.log(this.yeoman);
-
-//  TODO: Add question about preprocessors: SASS and Stylus; LESS is very slow now
-//  TODO: Add question about add MVC: EmberJS, AngularJS, bem-mvc
-
-};
 
 BemGenerator.prototype.dots = function git() {
     this.directory('dots', cwd);
@@ -34,8 +26,6 @@ BemGenerator.prototype.packages = function packageJSON() {
     this.template('_package.json', 'package.json');
     this.template('_bower.json', 'bower.json');
 };
-
-//  TODO: Make Gulp task for distribution
 
 BemGenerator.prototype.install = function () {
     if (this.options['skip-install']) {

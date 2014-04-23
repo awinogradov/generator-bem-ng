@@ -1,21 +1,22 @@
 {
+    "private": true,
     "name": "<%= _.slugify(appname) %>",
     "version": "0.0.0",
-    "description": "Write some words about <%= _.slugify(appname) %>",
-    "private": true,
-    "homepage": "https://github.com/username/repository",
-    "bugs": "https://github.com/username/repository/issues",
+    "description": "Description for <%= _.slugify(appname) %>",
+    "homepage": "https://github.com/<%= username %>/<%= _.slugify(appname) %>",
+    "bugs": "https://github.com/<%= username %>/<%= _.slugify(appname) %>/issues",
     "author": {
-        "name": "username",
-        "email": "username@gmail.com",
-        "url": "https://github.com/username"
+        "name": "<%= username %>",
+        "email": "<%= email %>",
+        "url": "https://github.com/<%= username %>"
     },
     "repository": {
         "type": "git",
-        "url": "git://github.com/username/repository.git"
+        "url": "git://github.com/<%= username %>/<%= _.slugify(appname) %>.git"
     },
     "_settings": {
-        "root": "app",
+        "app": "app",
+        "server": "server",
         "blocks": "blocks",
         "bundles": "bundles",
         "libs": "bower_components"
@@ -28,8 +29,6 @@
         "bower-npm-install": "~0.5.2",
         "bem-tools-autoprefixer": "0.0.2",
         "bem-cli": "~1.0.1",
-        "gulp": "~3.6.0",
-        "gulp-if": "0.0.5",
         "node-sass": "~0.8.4"
     },
     "engines": {
