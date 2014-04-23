@@ -5,7 +5,6 @@ var pkg     = require('../package.json')._settings,
 
     PRJ_ROOT     = environ.PRJ_ROOT,
     LIBS_PATH    = join(PRJ_ROOT, pkg.libs),
-    BLOCKS_PATH  = join(PRJ_ROOT, pkg.blocks),
     BUNDLES_PATH = pkg.bundles;
 
 // npm package with tech for autoprefixer
@@ -55,28 +54,26 @@ MAKE.decl('BundleNode', {
             // and uncomment next lines for using i-bem.js blocks
             //'bem-components/common.blocks',
             //'bem-components/desktop.blocks',
-            'bem-protein/app/blocks/base',
-            'bem-protein/app/blocks/typo',
-            'bem-protein/app/blocks/grid',
-            'bem-protein/app/blocks/buttons',
-            'bem-protein/app/blocks/forms',
-            'bem-protein/app/blocks/navigation',
-            'bem-protein/app/blocks/lists',
-            'bem-protein/app/blocks/tables',
-            'bem-protein/app/blocks/wrappers',
-            'bem-protein/app/blocks/windows',
-            'bem-protein/app/blocks/progress',
-            'bem-protein/app/blocks/js'
+            'bem-protein/blocks/base',
+            'bem-protein/blocks/typo',
+            'bem-protein/blocks/grid',
+            'bem-protein/blocks/buttons',
+            'bem-protein/blocks/forms',
+            'bem-protein/blocks/navigation',
+            'bem-protein/blocks/lists',
+            'bem-protein/blocks/tables',
+            'bem-protein/blocks/wrappers',
+            'bem-protein/blocks/windows',
+            'bem-protein/blocks/progress',
+            'bem-protein/blocks/js'
         ]
         .map(function(level) { return path.resolve(LIBS_PATH, level); })
         // this project levels
         .concat([
-            // declare your blocks here like this:
-            // 'menu'
-            // 'alerts'
-            // 'yet'
+            'blocks/base',
+            'design/base',
         ]
-        .map(function(level) { return path.resolve(BLOCKS_PATH, level); }));
+        .map(function(level) { return path.resolve(PRJ_ROOT, level); }));
     },
 
     'create-prefix.css-node' : function(tech, bundle, magic) {
