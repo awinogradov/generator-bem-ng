@@ -33,14 +33,13 @@ MAKE.decl('BundleNode', {
             'bemhtml',
             'js',
             'scss',
-            'prefix.css',
             'html'
         ];
     },
 
     // techs in parallel processes
     getForkedTechs : function() {
-        return this.__base().concat(['js', 'scss']);
+        return this.__base().concat(['scss']);
     },
 
     // levels for build
@@ -76,16 +75,11 @@ MAKE.decl('BundleNode', {
         .map(function(level) { return path.resolve(PRJ_ROOT, level); }));
     },
 
-    'create-prefix.css-node' : function(tech, bundle, magic) {
-        return this.createDefaultTechNode.call(this, 'css', bundle, magic);
-    },
-
-    'create-prefix.css-optimizer-node' : function(tech, sourceNode, bundle) {
-        var borschikCss = this['create-css-optimizer-node'];
-        return borschikCss.apply(this, arguments).map(function(source) {
-            var node = this.createAutoprefixerNode(tech, source, bundle);
-            return borschikCss.call(this, tech, node, bundle);
-        }, this);
+    'create-css-node' : function(tech, bundleNode, magicNode) {
+        var source = this.getBundlePath('scss');
+        if(this.ctx.arch.hasNode(source)) {
+            return this.createAutoprefixerNode(tech, this.ctx.arch.getNode(source), bundleNode, magicNode);
+        }
     }
 });
 
