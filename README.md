@@ -6,11 +6,11 @@ A BEM generator for [Yeoman](http://yeoman.io). Make bem-projects pretty
 for development with another front-end techs and automatic distribution with Gulp. In the future generator will
 be include tests, js/css hinting. You can watch issues for know about new features and bugs.
 
-### Default techs
+### Default techs for blocks
 
 - bemhtml
+- roole
 - js
-- scss
 - md
 
 You can customize they with [bem-techs](https://github.com/verybigman/bem-techs)

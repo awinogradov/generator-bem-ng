@@ -5,14 +5,14 @@
 В ближайшем будущем генератор будет включать тесты, валидацию js/css. Следите за issues, чтобы быть в курсе
 ближайших планов и известных багов.
 
-### Default techs
+### Технологии для блоков по умолчанию
 
 - bemhtml
+- roole
 - js
-- scss
 - md
 
-ВЫ можете заменить их на необходимые, используя библиотеку технологий [bem-techs](https://github.com/verybigman/bem-techs)
+ВЫ можете заменить их на любые другие, используя библиотеку технологий [bem-techs](https://github.com/verybigman/bem-techs)
 и [технологии, которые предоставляет bem-tools](https://github.com/bem/bem-tools/tree/support/0.7.x/lib/techs/v2).
 
 ### Начало работы

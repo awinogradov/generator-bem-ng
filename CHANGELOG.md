@@ -1,5 +1,13 @@
 This CHANGELOG also available in [russian](https://github.com/verybigman/generator-bem/blob/master/CHANGELOG.ru.md).
 
+__1.0.0__:
+
+- compatibility structure with bem-core, bem-components and project-stub
+- using libs directory for bower-npm-install instead of bower_components
+- make v1.0.0 is main branch
+- add separating with design and platforms
+- using Roole for css by default
+
 __0.2.1__:
 
 - delete depends on project-stub
