@@ -35,30 +35,34 @@ MAKE.decl('BundleNode', {
 
     getLevelsMap : function() {
         return {
-            'desktop': [
-                // bem-core without i-bem.js
-                // see how in bem-protein/app/blocks/base/page/page.deps.js
-                path.join(dirs.libs, 'bem-core/common.blocks'),
-                // You can also install bem-components (use bower-npm-install)
-                // and uncomment next lines for using i-bem.js blocks
-                // path.join(dirs.libs, 'bem-components/common.blocks'),
-                // path.join(dirs.libs, 'bem-components/desktop.blocks'),
-                path.join(dirs.libs, 'bem-protein/blocks/base'),
-                path.join(dirs.libs, 'bem-protein/blocks/typo'),
-                path.join(dirs.libs, 'bem-protein/blocks/grid'),
-                path.join(dirs.libs, 'bem-protein/blocks/buttons'),
-                path.join(dirs.libs, 'bem-protein/blocks/forms'),
-                path.join(dirs.libs, 'bem-protein/blocks/navigation'),
-                path.join(dirs.libs, 'bem-protein/blocks/lists'),
-                path.join(dirs.libs, 'bem-protein/blocks/tables'),
-                path.join(dirs.libs, 'bem-protein/blocks/wrappers'),
-                path.join(dirs.libs, 'bem-protein/blocks/windows'),
-                path.join(dirs.libs, 'bem-protein/blocks/progress'),
-                path.join(dirs.libs, 'bem-protein/blocks/js'),
-                // project blocks
-                'desktop.blocks/base',
-                'design/base'
-            ],
+            'desktop':
+            // bem-core levels without i-bem.js
+            [
+                'common.blocks'
+            ].map(function(level){ return path.join(dirs.libs, 'bem-core', level); })
+
+            // You can also install bem-components (use bower-npm-install)
+            // and uncomment next lines for using i-bem.js blocks
+            // .concat([ 'common.blocks', 'desktop.blocks', 'design' ])
+            // .map(function(level){ return path.join(dirs.libs, 'bem-components', level); })
+
+            // bem-protein levels
+            .concat(
+                [
+                    'blocks/base',    'blocks/typo',     'blocks/grid',
+                    'blocks/buttons', 'blocks/forms',    'blocks/navigation',
+                    'blocks/lists',   'blocks/tables',   'blocks/wrappers',
+                    'blocks/windows', 'blocks/progress', 'blocks/js'
+                ].map(function(level){ return path.join(dirs.libs, 'bem-protein', level); })
+            )
+
+            // project levels
+            .concat(
+                [
+                    'common.blocks/base', 'desktop.blocks/base', 'desktop.design/base'
+                ]
+            ),
+
             'touch-pad': [
                 // 'common.blocks',
                 // 'touch.blocks',
