@@ -35,7 +35,7 @@ MAKE.decl('BundleNode', {
 
     getLevelsMap : function() {
         return {
-            desktop: [
+            'desktop': [
                 // bem-core without i-bem.js
                 // see how in bem-protein/app/blocks/base/page/page.deps.js
                 path.join(dirs.libs, 'bem-core/common.blocks'),
@@ -73,7 +73,7 @@ MAKE.decl('BundleNode', {
     },
 
     getLevels : function() {
-        var resolve = path.resolve.bind(PATH, this.root),
+        var resolve = path.resolve.bind(path, this.root),
             buildLevel = this.getLevelPath().split('.')[0],
             levels = this.getLevelsMap()[buildLevel] || [];
 
