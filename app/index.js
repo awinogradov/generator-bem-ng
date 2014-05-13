@@ -36,7 +36,7 @@ var BemGenerator = module.exports = function BemGenerator(args, options, config)
 
 util.inherits(BemGenerator, yeoman.generators.Base);
 
-BemGenerator.prototype.packages = function packageJSON() {
+BemGenerator.prototype.configs = function configs() {
     this.template('_package.json', 'package.json');
     this.template('_bower.json', 'bower.json');
 };
