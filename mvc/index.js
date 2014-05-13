@@ -31,6 +31,11 @@ MvcGenerator.prototype.templates = function templates() {
     this.template(join('_init.js'), join('app', 'init.js'));
 };
 
+MvcGenerator.prototype.libs = function libs() {
+    this.directory(join('libs', 'angularjs'), join('common.blocks', 'libs', 'angularjs'));
+    this.copy('deps.js', join('common.blocks', 'base', 'page', 'page.deps.js'));
+};
+
 MvcGenerator.prototype.dependencies = function dependencies() {
 
     bower

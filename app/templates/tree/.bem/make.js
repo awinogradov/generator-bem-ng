@@ -49,29 +49,44 @@ MAKE.decl('BundleNode', {
             // bem-protein levels
             .concat(
                 [
-                    'blocks/base',    'blocks/typo',     'blocks/grid',
-                    'blocks/buttons', 'blocks/forms',    'blocks/navigation',
-                    'blocks/lists',   'blocks/tables',   'blocks/wrappers',
-                    'blocks/windows', 'blocks/progress', 'blocks/js'
+                    'common.blocks/base',
+                    'common.design/base',
+                    'common.blocks/typo',
+                    'common.blocks/grid',
+                    'common.blocks/buttons',
+                    'common.design/buttons',
+                    'desktop.blocks/forms',
+                    'desktop.design/forms',
+                    'desktop.blocks/navigation',
+                    'desktop.blocks/lists',
+                    'desktop.blocks/tables',
+                    'desktop.blocks/wrappers',
+                    'desktop.design/wrappers',
+                    'desktop.blocks/windows',
+                    'desktop.design/windows',
+                    'desktop.blocks/progress',
+                    'desktop.blocks/js'
                 ].map(function(level){ return path.join(dirs.libs, 'bem-protein', level); })
             )
 
             // project levels
             .concat(
                 [
-                    'common.blocks/base', 'desktop.blocks/base', 'desktop.design/base'
+                    'common.blocks/libs',
+                    'common.blocks/base',
+                    'common.design/base',
+                    'desktop.blocks/base',
+                    'desktop.design/base'
                 ]
             ),
 
             'touch-pad': [
-                // 'common.blocks',
-                // 'touch.blocks',
-                // 'touch-pad.blocks'
+                'common.blocks/base',
+                'common.design/base',
             ],
             'touch-phone': [
-                // 'common.blocks',
-                // 'touch.blocks',
-                // 'touch-phone.blocks'
+                'common.blocks/base',
+                'common.design/base',
             ]
         };
     },
@@ -131,4 +146,13 @@ MAKE.decl('AutoprefixerNode', {
         return this.__base();
     }
 
+});
+
+MAKE.decl('BundlesLevelNode', {
+    buildMergedBundle: function() {
+        return true;
+    },
+    mergedBundleName: function() {
+        return 'mergedBundle';
+    }
 });
