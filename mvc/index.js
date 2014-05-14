@@ -16,7 +16,6 @@ var MvcGenerator = module.exports = function MvcGenerator(args, options, config)
 util.inherits(MvcGenerator, yeoman.generators.NamedBase);
 
 MvcGenerator.prototype.tree = function tree() {
-    this.directory(join('system', 'tree'), join('app', 'system'));
     this.mkdir(join('app', 'system', 'directives'));
     this.mkdir(join('app', 'system', 'services'));
     this.mkdir(join('app', 'system', 'routes'));
@@ -36,6 +35,15 @@ MvcGenerator.prototype.libs = function libs() {
     this.copy('deps.js', join('common.blocks', 'base', 'page', 'page.deps.js'));
 };
 
+MvcGenerator.prototype.partials = function partials() {
+    this.directory(join('partials', 'system.index'), join('desktop.bundles', 'system.index'));
+}
+
+MvcGenerator.prototype.blocks = function blocks() {
+    this.directory(join('blocks', 'template'), join('common.blocks', 'base', 'template'));
+    this.directory(join('blocks', 'view'), join('common.blocks', 'base', 'view'));
+}
+
 MvcGenerator.prototype.dependencies = function dependencies() {
 
     bower
@@ -43,5 +51,9 @@ MvcGenerator.prototype.dependencies = function dependencies() {
     .install(['angular', 'angular-ui-router'], { save: true }, { interactive: true })
     .on('error', function (error) {
         console.log(error);
+    })
+    .on('end', function (error) {
+        console.log('\nAngularJS installed succesfully!');
+        console.log('\nAdd block \'view\' to your bundle\n');
     });
 };

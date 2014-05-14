@@ -7,9 +7,9 @@ angular.module('<%= _.slugify(appname) %>.system').config(['$stateProvider', '$u
 
             // states for my app
             $stateProvider
-                .state('home', {
+                .state('index', {
                     url: '/',
-                    templateUrl: 'public/index.html'
+                    templateUrl: 'public/templates/system/index.html'
                 });
         }
     ])

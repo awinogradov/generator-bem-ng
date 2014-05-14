@@ -27,7 +27,7 @@
         "bem-tools-autoprefixer": "~0.0.3"
     },
     "devDependencies": {
-        "bem": "~0.8.0",
+        "bem": "~0.8.1",
         "bower": "~1.2.8",
         "borschik": "~0.4.2",
         "bower-npm-install": "~0.5.2",

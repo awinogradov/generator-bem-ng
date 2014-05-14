@@ -7,7 +7,6 @@ require('bem-tools-autoprefixer').extendMake(MAKE);
 
 MAKE.decl('Arch', {
 
-    blocksLevelsRegexp : /^.+?\.blocks/,
     bundlesLevelsRegexp : /^.+?\.bundles$/
 
 });
@@ -80,14 +79,8 @@ MAKE.decl('BundleNode', {
                 ]
             ),
 
-            'touch-pad': [
-                'common.blocks/base',
-                'common.design/base',
-            ],
-            'touch-phone': [
-                'common.blocks/base',
-                'common.design/base',
-            ]
+            'touch-pad': [],
+            'touch-phone': []
         };
     },
 
@@ -153,6 +146,6 @@ MAKE.decl('BundlesLevelNode', {
         return true;
     },
     mergedBundleName: function() {
-        return 'mergedBundle';
+        return 'assets';
     }
 });
