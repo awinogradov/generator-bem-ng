@@ -1,6 +1,0 @@
-block('view')(
-    attrs()(function(){
-        var view_name = this.ctx.template ? this.ctx.template : '';
-        return { 'ui-view': view_name };
-    })
-)

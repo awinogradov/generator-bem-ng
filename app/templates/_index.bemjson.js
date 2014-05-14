@@ -27,7 +27,7 @@
                     tag: 'p', content: 'Find this in desktop.bundles/index/index.bemjson.js'
                 },
                 // Uncomment this if you want use AngularJS MVC
-                // {block: 'view'}
+                // { block: 'ng-view' }
             ]
         },
         {

@@ -22,6 +22,8 @@ ServerGenerator.prototype.server = function server() {
 
 ServerGenerator.prototype.dependencies = function dependencies() {
 
+    var _this = this;
+
     npm.load(function(err, npm) {
 
         if (err) console.log(err);
@@ -30,6 +32,8 @@ ServerGenerator.prototype.dependencies = function dependencies() {
         .commands
         .install(['express', 'body-parser', 'errorhandler', 'morgan', 'winston', 'consolidate', 'ejs'], function() {
             console.log('\nExpress installed succesfully!');
+
+            _this.log.write('').ok('Done!');
         });
     });
 };

@@ -1,5 +1,15 @@
 This CHANGELOG also available in [russian](https://github.com/verybigman/generator-bem/blob/master/CHANGELOG.ru.md).
 
+__1.1.0__:
+
+- removed dependency on bem-techs, use techs from Yandex libs only
+- add subgen for AngularJS application extending
+- add subgen for creating AngularJS modules
+- add subgen for NodeJS application extending
+- add special group of blocks common.blocks/libs for connecting with external libs
+- compile assets (css, js, ng-templates) with Gulp
+- update packages versions and remove unneeded
+
 __1.0.0__:
 
 - compatibility structure with bem-core, bem-components and project-stub
@@ -25,7 +35,7 @@ __0.2.0__:
 - use bem sever for development
 - use autoprefixer with bem-tools make
 
-__0.1.1:
+__0.1.1__:
 
 - remove examples prompt
 
