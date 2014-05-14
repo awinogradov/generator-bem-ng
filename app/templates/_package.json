@@ -24,6 +24,9 @@
         "styles": "assets",
         "scripts": "assets"
     },
+    "_settings": {
+        "env": "development"
+    },
     "dependencies": {
         "bem-environ": "~1.4.0",
         "roole": "~0.9.0",
