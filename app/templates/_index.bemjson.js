@@ -4,6 +4,8 @@
     favicon: 'favicon.ico',
     head: [{ elem: 'meta', attrs: { name: 'description', content: '' }}],
     styles: [{ elem: 'css', url: 'assets/application.min.css', ie: false }],
+    // Uncomment this if you want use AngularJS MVC
+    // attrs: {'ng-app': '<%= _.slugify(appname) %>'},
     content:[
         {
             elem: 'header',
@@ -41,6 +43,7 @@
     ],
     scripts: [
         { elem: 'js', url: 'assets/plugins.min.js' },
-        { elem: 'js', url: 'assets/application.min.js' }
+        // Uncomment this if you want use AngularJS MVC
+        // { elem: 'js', url: 'assets/application.min.js' }
     ]
 })

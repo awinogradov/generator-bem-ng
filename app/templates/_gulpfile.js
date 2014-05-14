@@ -45,25 +45,24 @@ gulp.task('plugins', function() {
         .pipe(gulp.dest(PJS))
 });
 
-gulp.task('application', function() {
-    gulp.src([
-            join(dirs.app, 'init.js'),
-            join(dirs.app, '**', 'routes', '*.js'),
-            join(dirs.app, '**', 'services', '*.js'),
-            join(dirs.app, '**', 'directives', '*.js'),
-            join(dirs.app, '**', 'controllers', '*.js')
-        ])
-        .pipe(concat(ANAME + '.min.js'))
-        .pipe(gulp.dest(PJS));
-});
-
-gulp.task('watch_application', function() {
-    gulp.watch([join(dirs.app, '**', '*.js'), join(dirs.app, '*.js')], ['application']);
-});
-
 gulp.task('bundles', function(){
     gulp.src(BUNDLES)
         .pipe(gulp.dest(dirs.public));
+});
+
+gulp.task('application', function() {
+
+    // Uncomment this if you want use AngularJS MVC
+    // gulp.src([
+    //         join(dirs.app, 'init.js'),
+    //         join(dirs.app, '**', '*.js'),
+    //         join(dirs.app, '**', 'routes', '*.js'),
+    //         join(dirs.app, '**', 'services', '*.js'),
+    //         join(dirs.app, '**', 'directives', '*.js'),
+    //         join(dirs.app, '**', 'controllers', '*.js')
+    //     ])
+    //     .pipe(concat(ANAME + '.min.js'))
+    //     .pipe(gulp.dest(PJS));
 });
 
 gulp.task('templates', function(){
@@ -81,5 +80,8 @@ gulp.task('templates', function(){
 
 });
 
+
 gulp.task('views', ['bundles', 'templates']);
 gulp.task('assets', ['styles', 'plugins', 'application']);
+
+gulp.task('default', ['views', 'assets']);

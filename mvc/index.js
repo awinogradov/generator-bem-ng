@@ -54,6 +54,9 @@ MvcGenerator.prototype.dependencies = function dependencies() {
     })
     .on('end', function (error) {
         console.log('\nAngularJS installed succesfully!');
-        console.log('\nAdd block \'view\' to your bundle and uncomment \'templates\' task in gulpfile\n');
+        console.log('\nYou have to:');
+        console.log('1. Add block \'view\' to your bundle');
+        console.log('2. Uncomment \'application\' and \'templates\' tasks in gulpfile');
+        console.log('3. Uncomment \'application.min.js\' script and ng-app attribute for page in desktop.bundles/index/index.bemjson.js\n');
     });
 };
