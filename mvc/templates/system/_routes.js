@@ -9,7 +9,7 @@ angular.module('<%= _.slugify(appname) %>.system').config(['$stateProvider', '$u
         $stateProvider
             .state('index', {
                 url: '/',
-                templateUrl: 'public/templates/system/index.html'
+                templateUrl: 'templates/system/index.html'
             });
     }
 ]);
