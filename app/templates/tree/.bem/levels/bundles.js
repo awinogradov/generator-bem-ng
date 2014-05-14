@@ -5,7 +5,6 @@ var dirs            = require('../../package.json')._directories,
 
     PRJ_ROOT        = environ.PRJ_ROOT,
     PRJ_TECHS       = path.resolve(PRJ_ROOT, '.bem/techs'),
-    BEM_TECHS       = environ.getLibPath('bem-techs', '.bem/techs'),
     BEMCORE_TECHS   = environ.getLibPath('bem-core', '.bem/techs');
 
 exports.baseLevelPath = require.resolve('./blocks');
