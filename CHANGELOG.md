@@ -1,5 +1,9 @@
 This CHANGELOG also available in [russian](https://github.com/verybigman/generator-bem/blob/master/CHANGELOG.ru.md).
 
+__1.1.1__:
+
+- hot fixes
+
 __1.1.0__:
 
 - removed dependency on bem-techs, use techs from Yandex libs only
