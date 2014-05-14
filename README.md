@@ -6,12 +6,12 @@ Awesome [Yeoman](http://yeoman.io) generator for bem-projects.
 
 ### With generator-bem you can:
 
-- make pretty bem-project structure: yo bem
-- extend you bem-project to AngularJS application: yo bem:ng-app
-- add new AngularJS modules: yo bem:ng-module users
-- extend you bem-angular-project to NodeJS application: yo bem:server
-- distribute project with Gulp: bem make && gulp
-- get it now: npm install -g generator-bem
+- make pretty bem-project structure: `yo bem`
+- extend you bem-project to AngularJS application: `yo bem:ng-app`
+- add new AngularJS modules: `yo bem:ng-module users`
+- extend you bem-angular-project to NodeJS application: `yo bem:server`
+- distribute project with Gulp: `bem make && gulp`
+- get it now: `npm install -g generator-bem`
 
 ### Default blocks techs
 

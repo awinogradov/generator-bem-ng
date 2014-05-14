@@ -4,12 +4,12 @@
 
 ### С __generator-bem__ вы сможете:
 
-- создать удобную структуру для БЭМ-проекта: yo bem
-- расширить ваш БЭМ-проект до AngularJS приложения: yo bem:ng-app
-- создавать новые модули для AngularJS: yo bem:ng-module users
-- расширить ваш БЭМ-Angular-проект до NodeJS приложения: yo bem:server
-- собрать ваш БЭМ-проект с помощью Gulp: bem make && gulp
-- установить его прямо сейчас: npm install -g generator-bem
+- создать удобную структуру для БЭМ-проекта: `yo bem`
+- расширить ваш БЭМ-проект до AngularJS приложения: `yo bem:ng-app`
+- создавать новые модули для AngularJS: `yo bem:ng-module users`
+- расширить ваш БЭМ-Angular-проект до NodeJS приложения: `yo bem:server`
+- собрать ваш БЭМ-проект с помощью Gulp: `bem make && gulp`
+- установить его прямо сейчас: `npm install -g generator-bem`
 
 ### Технологии по умолчанию
 
