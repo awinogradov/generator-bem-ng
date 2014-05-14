@@ -3,7 +3,7 @@
     title: 'Yeoman BEM',
     favicon: 'favicon.ico',
     head: [{ elem: 'meta', attrs: { name: 'description', content: '' }}],
-    styles: [{ elem: 'css', url: '_index.css', ie: false }],
+    styles: [{ elem: 'css', url: 'assets/application.min.css', ie: false }],
     content:[
         {
             elem: 'header',
@@ -39,5 +39,8 @@
             ]
         }
     ],
-    scripts: [{ elem: 'js', url: '_index.js' }]
+    scripts: [
+        { elem: 'js', url: 'assets/plugins.min.js' },
+        { elem: 'js', url: 'assets/application.min.js' }
+    ]
 })

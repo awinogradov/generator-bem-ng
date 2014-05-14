@@ -39,6 +39,7 @@ util.inherits(BemGenerator, yeoman.generators.Base);
 BemGenerator.prototype.configs = function configs() {
     this.template('_package.json', 'package.json');
     this.template('_bower.json', 'bower.json');
+    this.template('_gulpfile.json', 'gulpfile.json');
 };
 
 BemGenerator.prototype.app = function app() {

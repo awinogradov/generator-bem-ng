@@ -19,7 +19,10 @@
         "server": "server",
         "blocks": "*.blocks",
         "bundles": "*.bundles",
-        "libs": "libs"
+        "libs": "libs",
+        "public": "public",
+        "styles": "assets",
+        "scripts": "assets"
     },
     "dependencies": {
         "bem-environ": "~1.4.0",
@@ -31,7 +34,14 @@
         "bower": "~1.2.8",
         "borschik": "~0.4.2",
         "bower-npm-install": "~0.5.2",
-        "bem-cli": "~1.0.1"
+        "bem-cli": "~1.0.1",
+        "gulp": "~3.6.0",
+        "gulp-if": "0.0.5",
+        "gulp-jshint": "~1.5.0",
+        "gulp-csso": "~0.2.7",
+        "gulp-rename": "~1.2.0",
+        "gulp-notify": "~1.2.5",
+        "gulp-concat": "~2.2.0"
     },
     "scripts": {
         "postinstall": "bower-npm-install --non-interactive",
