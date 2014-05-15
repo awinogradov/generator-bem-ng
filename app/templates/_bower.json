@@ -2,7 +2,7 @@
     "name": "<%= _.slugify(appname) %>",
     "version": "0.0.0",
     "dependencies": {
-        "bem-protein": "git://github.com/verybigman/bem-protein.git#561d0addc48226866614c01fa0073b95f42899a7"
+        "bem-protein": "git://github.com/verybigman/bem-protein.git#0.0.4"
     },
     "devDependencies": {}
 }
