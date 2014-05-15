@@ -1,5 +1,9 @@
 This CHANGELOG also available in [russian](https://github.com/verybigman/generator-bem/blob/master/CHANGELOG.ru.md).
 
+__1.1.5__:
+
+- update bem-protein version
+
 __1.1.4__:
 
 - update bem-protein version
