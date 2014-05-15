@@ -1,5 +1,10 @@
 This CHANGELOG also available in [russian](https://github.com/verybigman/generator-bem/blob/master/CHANGELOG.ru.md).
 
+__1.1.4__:
+
+- update bem-protein version
+- add new levels from bem-protein
+
 __1.1.3__:
 
 - add new levels from bem-protein

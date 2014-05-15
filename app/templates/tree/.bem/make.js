@@ -55,6 +55,7 @@ MAKE.decl('BundleNode', {
                     'common.blocks/base',
                     'common.design/base',
                     'common.blocks/typo',
+                    'common.design/typo',
                     'common.blocks/grid',
                     'common.blocks/buttons',
                     'common.design/buttons',
