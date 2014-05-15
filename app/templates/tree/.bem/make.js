@@ -48,6 +48,10 @@ MAKE.decl('BundleNode', {
             // bem-protein levels
             .concat(
                 [
+                    'common.blocks/libs',
+                    'common.design/libs',
+                    'common.blocks/utils',
+                    'common.design/utils',
                     'common.blocks/base',
                     'common.design/base',
                     'common.blocks/typo',
