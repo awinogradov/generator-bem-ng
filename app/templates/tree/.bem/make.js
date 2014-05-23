@@ -73,6 +73,14 @@ MAKE.decl('BundleNode', {
                 ].map(function(level){ return path.join(dirs.libs, 'bem-protein', level); })
             )
 
+            // bem-ng levels
+            // .concat(
+            //     [
+            //         'libs.blocks',
+            //         'common.blocks',
+            //     ].map(function(level){ return path.join(dirs.libs, 'bem-ng', level); })
+            // )
+
             // project levels
             .concat(
                 [

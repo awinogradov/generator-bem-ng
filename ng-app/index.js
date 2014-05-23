@@ -30,18 +30,8 @@ NgAppGenerator.prototype.templates = function templates() {
     this.template(join('_init.js'), join('app', 'init.js'));
 };
 
-NgAppGenerator.prototype.libs = function libs() {
-    this.directory(join('libs', 'angularjs'), join('common.blocks', 'libs', 'angularjs'));
-    this.copy('deps.js', join('common.blocks', 'base', 'page', 'page.deps.js'));
-};
-
 NgAppGenerator.prototype.partials = function partials() {
     this.directory(join('partials', 'system.index'), join('desktop.bundles', 'system.index'));
-}
-
-NgAppGenerator.prototype.blocks = function blocks() {
-    this.directory(join('blocks', 'ng-template'), join('common.blocks', 'base', 'ng-template'));
-    this.directory(join('blocks', 'ng-view'), join('common.blocks', 'base', 'ng-view'));
 }
 
 NgAppGenerator.prototype.dependencies = function dependencies() {
@@ -50,7 +40,7 @@ NgAppGenerator.prototype.dependencies = function dependencies() {
 
     bower
     .commands
-    .install(['angular', 'angular-ui-router'], { save: true }, { interactive: true })
+    .install(['angular', 'angular-ui-router', 'bem-ng'], { save: true }, { interactive: true })
     .on('error', function (error) {
         console.log(error);
     })
@@ -59,6 +49,7 @@ NgAppGenerator.prototype.dependencies = function dependencies() {
         console.log('\nYou have to:');
         console.log('1. Uncomment \'application\' and \'templates\' tasks in gulpfile');
         console.log('2. Uncomment \'application.min.js\' script, ng-app attribute for page and block \'view\' in desktop.bundles/index/index.bemjson.js');
+        console.log('3. Uncomment \'bem-ng\' levels in .bem/make.js');
 
         _this.log.write('').ok('Done!');
     });
