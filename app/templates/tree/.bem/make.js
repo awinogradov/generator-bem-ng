@@ -45,34 +45,6 @@ MAKE.decl('BundleNode', {
             // .concat([ 'common.blocks', 'desktop.blocks', 'design' ])
             // .map(function(level){ return path.join(dirs.libs, 'bem-components', level); })
 
-            // bem-protein levels
-            .concat(
-                [
-                    'common.blocks/libs',
-                    'common.design/libs',
-                    'common.blocks/utils',
-                    'common.design/utils',
-                    'common.blocks/base',
-                    'common.design/base',
-                    'common.blocks/typo',
-                    'common.design/typo',
-                    'common.blocks/grid',
-                    'common.blocks/buttons',
-                    'common.design/buttons',
-                    'desktop.blocks/forms',
-                    'desktop.design/forms',
-                    'desktop.blocks/navigation',
-                    'desktop.blocks/lists',
-                    'desktop.blocks/tables',
-                    'desktop.blocks/wrappers',
-                    'desktop.design/wrappers',
-                    'desktop.blocks/windows',
-                    'desktop.design/windows',
-                    'desktop.blocks/progress',
-                    'desktop.blocks/js'
-                ].map(function(level){ return path.join(dirs.libs, 'bem-protein', level); })
-            )
-
             // bem-ng levels
             // .concat(
             //     [
@@ -84,11 +56,11 @@ MAKE.decl('BundleNode', {
             // project levels
             .concat(
                 [
-                    'common.blocks/libs',
-                    'common.blocks/base',
-                    'common.design/base',
-                    'desktop.blocks/base',
-                    'desktop.design/base'
+                    'libs.blocks',
+                    'common.blocks',
+                    'design/common.blocks',
+                    'desktop.blocks',
+                    'design/desktop.blocks'
                 ]
             ),
 

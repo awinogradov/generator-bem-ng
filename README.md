@@ -25,9 +25,8 @@ You can override they with [bem-tools techs](https://github.com/bem/bem-tools/tr
 
 ### Dependencies
 
-Project contain [bem-core](https://github.com/bem/bem-core) lib developed by guys from
-[Yandex](http://yandex.ru) and framework [bem-protein](https://github.com/verybigman/bem-protein)
-that you use for base of all your bem-projects.
+Project contain [bem-core](https://github.com/bem/bem-core) and [bem-components](https://github.com/bem/bem-components)
+libs developed by guys from [Yandex](http://yandex.ru).
 
 ### [MIT](http://en.wikipedia.org/wiki/MIT_License) License
 

@@ -23,9 +23,8 @@
 
 ### Зависимости
 
-Генератор тащит за собой [bem-core](https://github.com/bem/bem-core), разрабатываемую ребятами из
-[Яндекса](http://yandex.ru) и фреймворк [bem-protein](https://github.com/verybigman/bem-protein),
-который может статить базой для всех ваших БЭМ-проектов.
+Генератор тащит за собой [bem-core](https://github.com/bem/bem-core) и [bem-components](https://github.com/bem/bem-components),
+разрабатываемые ребятами из [Яндекса](http://yandex.ru).
 
 ### [MIT](http://en.wikipedia.org/wiki/MIT_License) Лицензия
 
