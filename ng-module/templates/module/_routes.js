@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('<%= _.slugify(appname) %>.<%= _.slugify(module) %>').config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
 
