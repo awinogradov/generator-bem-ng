@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('<%= _.slugify(appname) %>.system').config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
         // For unmatched routes:
