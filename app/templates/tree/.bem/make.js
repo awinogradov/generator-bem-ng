@@ -35,10 +35,21 @@ MAKE.decl('BundleNode', {
     getLevelsMap : function() {
         return {
             'desktop':
-            // bem-core levels without i-bem.js
+            // bem-core levels
             [
-                'common.blocks'
+                'common.blocks',
+                'desktop.blocks'
             ].map(function(level){ return path.join(dirs.libs, 'bem-core', level); })
+
+            // bem-components levels
+            .concat(
+                [
+                    'common.blocks',
+                    'desktop.blocks',
+                    'design/common.blocks',
+                    'design/desktop.blocks'
+                ].map(function(level){ return path.join(dirs.libs, 'bem-components', level); })
+            )
 
             // You can also install bem-components (use bower-npm-install)
             // and uncomment next lines for using i-bem.js blocks

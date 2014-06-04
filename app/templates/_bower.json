@@ -1,6 +1,8 @@
 {
     "name": "<%= _.slugify(appname) %>",
     "dependencies": {
+        "bem-core": "v2.2.2",
+        "bem-components": "git://github.com/bem/bem-components.git#f72047c18062630ca2280674233e986e7b9f2ee8"
     },
     "devDependencies": {}
 }
