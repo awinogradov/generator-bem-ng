@@ -34,7 +34,7 @@ libs developed by guys from [Yandex](http://yandex.ru).
 
 ### Ideas
 
-Please, talk about your ideas by GitHub [issues](https://github.com/verybigman/bem-ng/issues).
+Please, talk about your ideas by GitHub [issues](https://github.com/verybigman/generator-bem/issues).
 
 ### [MIT](http://en.wikipedia.org/wiki/MIT_License) License
 
