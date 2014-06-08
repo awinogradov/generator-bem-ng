@@ -28,6 +28,14 @@ You can override they with [bem-tools techs](https://github.com/bem/bem-tools/tr
 Project contain [bem-core](https://github.com/bem/bem-core) and [bem-components](https://github.com/bem/bem-components)
 libs developed by guys from [Yandex](http://yandex.ru).
 
+### Autors
+
+- Anton Winogradov ([verybigman](https://github.com/verybigman))
+
+### Ideas
+
+Please, talk about your ideas by GitHub [issues](https://github.com/verybigman/bem-ng/issues).
+
 ### [MIT](http://en.wikipedia.org/wiki/MIT_License) License
 
 #### Think better. Stay BEMed!
