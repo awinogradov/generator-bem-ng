@@ -26,6 +26,14 @@
 Генератор тащит за собой [bem-core](https://github.com/bem/bem-core) и [bem-components](https://github.com/bem/bem-components),
 разрабатываемые ребятами из [Яндекса](http://yandex.ru).
 
+### Авторы
+
+- Виноградов Антон ([verybigman](https://github.com/verybigman))
+
+### Предложения
+
+Все замечания и предложения пишите в [issue](https://github.com/verybigman/generator-bem/issues) на Github.
+
 ### [MIT](http://en.wikipedia.org/wiki/MIT_License) Лицензия
 
 #### Think better. Stay BEMed!
