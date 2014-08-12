@@ -19,7 +19,7 @@ MAKE.decl('BundleNode', {
             'bemjson.js',
             'bemdecl.js',
             'deps.js',
-            'roole',
+            'stylus',
             'css',
             'js',
             'bemhtml',
@@ -29,7 +29,7 @@ MAKE.decl('BundleNode', {
     },
 
     getForkedTechs : function() {
-        return this.__base().concat(['roole']);
+        return this.__base().concat(['stylus']);
     },
 
     getLevelsMap : function() {
@@ -50,11 +50,6 @@ MAKE.decl('BundleNode', {
                     'design/desktop.blocks'
                 ].map(function(level){ return path.join(dirs.libs, 'bem-components', level); })
             )
-
-            // You can also install bem-components (use bower-npm-install)
-            // and uncomment next lines for using i-bem.js blocks
-            // .concat([ 'common.blocks', 'desktop.blocks', 'design' ])
-            // .map(function(level){ return path.join(dirs.libs, 'bem-components', level); })
 
             // bem-ng levels
             // .concat(
@@ -91,7 +86,7 @@ MAKE.decl('BundleNode', {
     },
 
     'create-css-node' : function(tech, bundleNode, magicNode) {
-        var source = this.getBundlePath('roole');
+        var source = this.getBundlePath('stylus');
         if(this.ctx.arch.hasNode(source)) {
             return this.createAutoprefixerNode(tech, this.ctx.arch.getNode(source), bundleNode, magicNode);
         }
