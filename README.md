@@ -28,7 +28,7 @@ You can override they with [bem-tools techs](https://github.com/bem/bem-tools/tr
 Project contain [bem-core](https://github.com/bem/bem-core) and [bem-components](https://github.com/bem/bem-components)
 libs developed by guys from [Yandex](http://yandex.ru).
 
-### Autors
+### Authors
 
 - Anton Winogradov ([verybigman](https://github.com/verybigman))
 
