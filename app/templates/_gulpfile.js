@@ -1,87 +1,98 @@
-var pkg      = require('./package.json'),
-    dirs     = pkg._directories,
+var $        = require('gulp-load-plugins')(),
+    pkg      = require('./package.json'),
+    settings = require('./settings.json'),
+    bsync    = require('browser-sync'),
+    tsync    = require('run-sequence'),
     bem      = require('bem').api,
     gulp     = require('gulp'),
-    gif      = require('gulp-if'),
-    csso     = require('gulp-csso'),
-    concat   = require('gulp-concat'),
-    notify   = require('gulp-notify'),
-    rename   = require('gulp-rename'),
     path     = require('path'),
     join     = path.join,
 
-    PLATFORM = 'desktop',      // folders with bundles
-    ASSETS   = 'assets',       // merged bundle name, united css ans js
-    ANAME    = 'application',  // assets filename for minified css and js
-    VNAME    = 'plugins',      // vendors filename for minified css and js
-
-    APATH     = join(PLATFORM + '.bundles', ASSETS),
-    ACSS      = join(APATH, '_' + ASSETS + '.css'),
-    AJS       = join(APATH, '_' + ASSETS + '.js'),
-    BUNDLES   = ['index'].map(function(bundle){ return join(PLATFORM + '.bundles', bundle, bundle + '.html')}),
-    TEMPLATES = [
-        {
-            module: 'system',
-            templates: ['index']
-        }
-    ],
-
-    PCSS     = join(dirs.public, dirs.styles),
-    PJS      = join(dirs.public, dirs.scripts),
+    APATH    = join(settings.platform + '.bundles', settings.assets.name),
+    CSS      = join(APATH, '_' + settings.assets.name + '.css'),
+    JS       = join(APATH, '_' + settings.assets.name + '.js'),
+    BUNDLES  = ['index'].map(function(bundle){ return join(settings.platform + '.bundles', bundle, bundle + '.html')}),
 
     V        = pkg.version,
     DNAME    = pkg.name + '_v' + V;
 
-gulp.task('styles', function() {
-    gulp.src(ACSS)
-        .pipe(csso())
-        .pipe(rename(ANAME + '.min.css'))
-        .pipe(gulp.dest(PCSS));
+gulp.task('bem', function(){
+    return bem.make({verbosity: 'error'});
 });
 
-gulp.task('plugins', function() {
-    gulp.src(AJS)
-        .pipe(rename(VNAME + '.min.js'))
-        .pipe(gulp.dest(PJS))
+gulp.task('styles', function() {
+    gulp.src(CSS)
+        .pipe($.cleanCss())
+        .pipe($.rename(settings.assets.styles.name))
+        .pipe(gulp.dest(settings.assets.styles.dir));
 });
+
+gulp.task('bem-styles', function () {
+    tsync('bem', 'styles');
+});
+
+gulp.task('scripts', function() {
+    gulp.src(JS)
+        .pipe($.rename(settings.assets.scripts.name))
+        .pipe(gulp.dest(settings.assets.scripts.dir))
+});
+
+gulp.task('bem-scripts', function () {
+    tsync('bem', 'scripts');
+});
+
+gulp.task('assets', ['styles', 'scripts']);
 
 gulp.task('bundles', function(){
     gulp.src(BUNDLES)
-        .pipe(gulp.dest(dirs.public));
+        .pipe(gulp.dest(settings.public));
 });
 
-gulp.task('application', function() {
+gulp.task('watch', function() {
+    gulp.watch([
+            'design/**/**/*.styl',
+            'design/**/**/**/*.styl'
+        ],  $.shell.task(['gulp bem-styles']));
 
-    // Uncomment this if you want use AngularJS MVC
-    // gulp.src([
-    //         join(dirs.app, 'init.js'),
-    //         join(dirs.app, '**', '*.js'),
-    //         join(dirs.app, '**', 'routes', '*.js'),
-    //         join(dirs.app, '**', 'services', '*.js'),
-    //         join(dirs.app, '**', 'directives', '*.js'),
-    //         join(dirs.app, '**', 'controllers', '*.js')
-    //     ])
-    //     .pipe(concat(ANAME + '.min.js'))
-    //     .pipe(gulp.dest(PJS));
+    gulp.watch([
+            '{common.blocks,' + settings.platform + '.blocks}/*.js',
+            '{common.blocks,' + settings.platform + '.blocks}/**/*.js'
+        ],  $.shell.task(['gulp bem-scripts']));
+
+    gulp.watch([
+            settings.platform + '.bundles/**/*.bemjson.js',
+            '{common.blocks,' + settings.platform + '.blocks}/*.bemhtml',
+            '{common.blocks,' + settings.platform + '.blocks}/**/*.bemhtml'
+        ],  $.shell.task(['gulp build']));
 });
 
-gulp.task('templates', function(){
+gulp.task('sync', function(){
+    var files = [
+        join(settings.public, '*.html'),
+        join(settings.assets.scripts.dir, settings.assets.scripts.name),
+        join(settings.assets.styles.dir, settings.assets.styles.name)
+    ];
 
-    // Uncomment this if you want use AngularJS MVC
-    // TEMPLATES.forEach(function(item) {
-    //     item.templates.forEach(function(template) {
-    //         var src = [item.module, template].join('.');
-    //
-    //         gulp.src(join(PLATFORM + '.bundles', src, src + '.html'))
-    //             .pipe(rename(template + '.html'))
-    //             .pipe(gulp.dest(join(dirs.public, 'templates', item.module)));
-    //     });
-    // });
+    var options = {
+        notify: false,
+        open: false,
+        ghostMode: false,
+        logLevel: 'debug',
+        minify: false,
+        server: {
+            baseDir: settings.public
+        }
+    };
 
+    bsync.init(files, options, function (err, inj) {
+        if (err) throw Error(err);
+    });
 });
 
+gulp.task('build', function () {
+    tsync('bem', ['bundles', 'assets']);
+});
 
-gulp.task('views', ['bundles', 'templates']);
-gulp.task('assets', ['styles', 'plugins', 'application']);
-
-gulp.task('default', ['views', 'assets']);
+gulp.task('default', function () {
+    tsync('default', ['watch', 'sync']);
+});

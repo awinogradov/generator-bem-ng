@@ -1,0 +1,21 @@
+{
+    "platform": "application",
+    "public": "./public",
+    "assets": {
+        "name": "assets",
+        "dir": "./assets",
+        "cwd": "./public/assets",
+        "styles": {
+            "name": "application.min.css",
+            "dir": "./public/assets"
+        },
+        "scripts": {
+            "name": "application.min.js",
+            "dir": "./public/assets"
+        }
+    },
+    "vendors": {
+        "name": "vendors",
+        "dir": "./bower_components"
+    }
+}

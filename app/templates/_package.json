@@ -14,11 +14,6 @@
         "type": "git",
         "url": "git://github.com/<%= username %>/<%= _.slugify(appname) %>.git"
     },
-    "_directories": {
-        "public": "public",
-        "styles": "assets",
-        "scripts": "assets"
-    },
     "dependencies": {
         "bem-environ": "~1.4.0",
     },
