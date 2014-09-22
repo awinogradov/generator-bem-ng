@@ -22,7 +22,7 @@ gulp.task('bem', function(){
 
 gulp.task('styles', function() {
     gulp.src(CSS)
-        .pipe($.cleanCss())
+        .pipe($.minifyCss())
         .pipe($.rename(settings.assets.styles.name))
         .pipe(gulp.dest(settings.assets.styles.dir));
 });

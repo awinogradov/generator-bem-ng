@@ -10,7 +10,8 @@ var BemGenerator = module.exports = function BemGenerator(args, options, config)
     yeoman.generators.Base.apply(this, arguments);
 
     this.pkg      = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
-    this.email    = this.user.git.email;
+    this.settings = JSON.parse(this.readFileAsString(path.join(__dirname, '../app/templates/_settings.json')));
+    this.email    = this.user.git.email();
     this.username = this.user.git.username || this.shell.exec('whoami').output.trim();
 
     var _this = this;
@@ -45,6 +46,6 @@ BemGenerator.prototype.configs = function configs() {
 
 BemGenerator.prototype.app = function app() {
     this.directory('tree', cwd);
-    this.template('_index.bemjson.js', join('desktop.bundles', 'index', 'index.bemjson.js'));
+    this.template('_index.bemjson.js', join(this.settings.platform + '.bundles', 'index', 'index.bemjson.js'));
     this.template('_README.md', 'README.md');
 };

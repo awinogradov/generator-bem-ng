@@ -1,12 +1,12 @@
-var dirs = require('../package.json')._directories,
-    path = require('path');
+var settings = require('../settings.json'),
+    path     = require('path'),
+    U        = require('bem').util;
 
-// npm package with tech for autoprefixer
-// more info here: https://github.com/bem/bem-tools-autoprefixer
 require('bem-tools-autoprefixer').extendMake(MAKE);
 
 MAKE.decl('Arch', {
 
+    blocksLevelsRegexp : /^.+?\.blocks$/,
     bundlesLevelsRegexp : /^.+?\.bundles$/
 
 });
@@ -14,75 +14,39 @@ MAKE.decl('Arch', {
 MAKE.decl('BundleNode', {
 
     getTechs: function() {
-
         return [
             'bemjson.js',
             'bemdecl.js',
             'deps.js',
             'stylus',
             'css',
-            'js',
             'bemhtml',
+            'browser.js+bemhtml',
             'html'
         ];
-
     },
 
     getForkedTechs : function() {
-        return this.__base().concat(['stylus']);
+        return this.__base().concat(['browser.js+bemhtml', 'stylus']);
     },
 
-    getLevelsMap : function() {
-        return {
-            'desktop':
-            // bem-core levels
-            [
-                'common.blocks',
-                'desktop.blocks'
-            ].map(function(level){ return path.join(dirs.libs, 'bem-core', level); })
-
-            // bem-components levels
-            .concat(
-                [
-                    'common.blocks',
-                    'desktop.blocks',
-                    'design/common.blocks',
-                    'design/desktop.blocks'
-                ].map(function(level){ return path.join(dirs.libs, 'bem-components', level); })
-            )
-
-            // bem-ng levels
-            // .concat(
-            //     [
-            //         'libs.blocks',
-            //         'common.blocks',
-            //     ].map(function(level){ return path.join(dirs.libs, 'bem-ng', level); })
-            // )
-
-            // project levels
-            .concat(
-                [
-                    'libs.blocks',
-                    'common.blocks',
-                    'design/common.blocks',
-                    'desktop.blocks',
-                    'design/desktop.blocks'
-                ]
-            ),
-
-            'touch-pad': [],
-            'touch-phone': []
-        };
+    getPlatform : function(levelpath) {
+        return levelpath.split('.')[0].replace(/-([a-z])/gi, function(_, letter) {
+            return letter.toUpperCase();
+        });
     },
 
     getLevels : function() {
-        var resolve = path.resolve.bind(path, this.root),
-            buildLevel = this.getLevelPath().split('.')[0],
-            levels = this.getLevelsMap()[buildLevel] || [];
-
-        return levels
-            .map(function(path) { return resolve(path); })
-            .concat(resolve(path.dirname(this.getNodePrefix()), 'blocks'));
+        return [
+            'libs/bem-core/common.blocks',
+            'libs/bem-core/desktop.blocks',
+            'libs/bem-components/common.blocks',
+            'libs/bem-components/desktop.blocks',
+            'libs/bem-components/design/common.blocks',
+            'libs/bem-components/design/desktop.blocks',
+            settings.platform + '.blocks',
+            'design/' + settings.platform + '.blocks'
+        ];
     },
 
     'create-css-node' : function(tech, bundleNode, magicNode) {
@@ -104,27 +68,8 @@ MAKE.decl('AutoprefixerNode', {
         var platform = this.getPlatform();
         switch(platform) {
 
-        case 'desktop':
-            return [
-                'last 2 versions',
-                'ie 10',
-                'ff 24',
-                'opera 12.16'
-            ];
-
-        case 'touch-pad':
-            return [
-                'android 4',
-                'ios 5'
-            ];
-
-        case 'touch-phone':
-            return [
-                'android 4',
-                'ios 6',
-                'ie 10'
-            ];
-
+        case settings.platform:
+            return settings.browsers_support;
         }
 
         return this.__base();
@@ -133,10 +78,12 @@ MAKE.decl('AutoprefixerNode', {
 });
 
 MAKE.decl('BundlesLevelNode', {
+
     buildMergedBundle: function() {
         return true;
     },
     mergedBundleName: function() {
-        return 'assets';
+        return settings.assets.name;
     }
+
 });

@@ -16,6 +16,14 @@
     },
     "vendors": {
         "name": "vendors",
-        "dir": "./bower_components"
-    }
+        "dir": "./libs"
+    },
+    "browsers_support": [
+        "last 2 versions",
+        "ie 10",
+        "ff 24",
+        "opera 12.16",
+        "android 4",
+        "ios 6"
+    ]
 }
