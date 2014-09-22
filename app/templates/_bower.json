@@ -1,8 +1,8 @@
 {
     "name": "<%= _.slugify(appname) %>",
     "dependencies": {
-        "bem-core": "v2.3.0",
-        "bem-components": "0b09f205e38cfd535c692ae1a0cfb36a713d90d0"
+        "bem-core": "v2.4.0",
+        "bem-components": "d968e66275143065782c112fcfe0db825ebd241e"
     },
     "devDependencies": {}
 }
