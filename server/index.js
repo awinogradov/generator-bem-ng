@@ -11,6 +11,7 @@ var ServerGenerator = module.exports = function ServerGenerator(args, options, c
 
     yeoman.generators.Base.apply(this, arguments);
 
+    this.settings = JSON.parse(this.readFileAsString(path.join(__dirname, '../app/templates/_settings.json')));
 };
 
 util.inherits(ServerGenerator, yeoman.generators.NamedBase);
@@ -30,7 +31,7 @@ ServerGenerator.prototype.dependencies = function dependencies() {
 
         npm
         .commands
-        .install(['express', 'body-parser', 'errorhandler', 'morgan', 'winston', 'consolidate', 'ejs'], function() {
+        .install(settings.server.deps, function() {
             console.log('\nExpress installed succesfully!');
 
             _this.log.write('').ok('Done!');

@@ -7,13 +7,13 @@ require('bem-tools-autoprefixer').extendMake(MAKE);
 MAKE.decl('Arch', {
 
     blocksLevelsRegexp : /^.+?\.blocks$/,
-    bundlesLevelsRegexp : /^.+?\.bundles$/
+    bundlesLevelsRegexp : /^.+?\.pages$/
 
 });
 
 MAKE.decl('BundleNode', {
 
-    getTechs: function() {
+    getTechs : function() {
         return [
             'bemjson.js',
             'bemdecl.js',
@@ -30,12 +30,6 @@ MAKE.decl('BundleNode', {
         return this.__base().concat(['browser.js+bemhtml', 'stylus']);
     },
 
-    getPlatform : function(levelpath) {
-        return levelpath.split('.')[0].replace(/-([a-z])/gi, function(_, letter) {
-            return letter.toUpperCase();
-        });
-    },
-
     getLevels : function() {
         return [
             'libs/bem-core/common.blocks',
@@ -44,8 +38,11 @@ MAKE.decl('BundleNode', {
             'libs/bem-components/desktop.blocks',
             'libs/bem-components/design/common.blocks',
             'libs/bem-components/design/desktop.blocks',
-            settings.platform + '.blocks',
-            'design/' + settings.platform + '.blocks'
+            'common.blocks',
+            'design/common.blocks',
+            'service.blocks',
+            'design/service.blocks',
+            'application.blocks'
         ];
     },
 
@@ -60,29 +57,18 @@ MAKE.decl('BundleNode', {
 
 MAKE.decl('AutoprefixerNode', {
 
-    getPlatform : function() {
-        return this.output.split('.')[0];
-    },
-
-    getBrowsers : function() {
-        var platform = this.getPlatform();
-        switch(platform) {
-
-        case settings.platform:
-            return settings.browsers_support;
-        }
-
-        return this.__base();
+    getBrowsers : function () {
+        return settings.browsers_support;
     }
 
 });
 
 MAKE.decl('BundlesLevelNode', {
 
-    buildMergedBundle: function() {
+    buildMergedBundle : function() {
         return true;
     },
-    mergedBundleName: function() {
+    mergedBundleName : function() {
         return settings.assets.name;
     }
 

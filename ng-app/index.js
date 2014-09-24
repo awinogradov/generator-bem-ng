@@ -11,6 +11,7 @@ var NgAppGenerator = module.exports = function NgAppGenerator(args, options, con
 
     yeoman.generators.Base.apply(this, arguments);
 
+    this.settings = JSON.parse(this.readFileAsString(path.join(__dirname, '../app/templates/_settings.json')));
 };
 
 util.inherits(NgAppGenerator, yeoman.generators.NamedBase);
@@ -31,7 +32,7 @@ NgAppGenerator.prototype.templates = function templates() {
 };
 
 NgAppGenerator.prototype.partials = function partials() {
-    this.directory(join('partials', 'system.index'), join('desktop.bundles', 'system.index'));
+    this.directory(join('partials', 'system.index'), join('application.pages', 'system.index'));
 }
 
 NgAppGenerator.prototype.dependencies = function dependencies() {
@@ -40,7 +41,7 @@ NgAppGenerator.prototype.dependencies = function dependencies() {
 
     bower
     .commands
-    .install(['angular', 'angular-ui-router', 'bem-ng'], { save: true }, { interactive: true })
+    .install(settings.application.deps, { save: true }, { interactive: true })
     .on('error', function (error) {
         console.log(error);
     })
@@ -48,7 +49,7 @@ NgAppGenerator.prototype.dependencies = function dependencies() {
         console.log('\nAngularJS installed succesfully!');
         console.log('\nYou have to:');
         console.log('1. Uncomment \'application\' and \'templates\' tasks in gulpfile');
-        console.log('2. Uncomment \'application.min.js\' script, ng-app attribute for page and block \'view\' in desktop.bundles/index/index.bemjson.js');
+        console.log('2. Uncomment \'application.min.js\' script, ng-app attribute for page and block \'view\' in application.pages/index/index.bemjson.js');
         console.log('3. Uncomment \'bem-ng\' levels in .bem/make.js');
 
         _this.log.write('').ok('Done!');

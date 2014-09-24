@@ -46,6 +46,6 @@ BemGenerator.prototype.configs = function configs() {
 
 BemGenerator.prototype.app = function app() {
     this.directory('tree', cwd);
-    this.template('_index.bemjson.js', join(this.settings.platform + '.bundles', 'index', 'index.bemjson.js'));
+    this.template('_index.bemjson.js', join(settings.service.pages, 'index', 'index.bemjson.js'));
     this.template('_README.md', 'README.md');
 };

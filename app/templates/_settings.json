@@ -1,5 +1,4 @@
 {
-    "platform": "application",
     "public": "./public",
     "assets": {
         "name": "assets",
@@ -25,5 +24,17 @@
         "opera 12.16",
         "android 4",
         "ios 6"
-    ]
+    ],
+    "service" : {
+        "levels" : [ "common.blocks", "application.blocks" ],
+        "pages" : {
+            "dir" : "application.pages"
+        }
+    },
+    "application" : {
+        "deps" : [ "angular" , "angular-ui-router", "bem-ng" ]
+    },
+    "server" : {
+        "deps" : [ "express", "body-parser", "errorhandler", "morgan", "winston", "consolidate", "ejs" ]
+    }
 }

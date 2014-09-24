@@ -8,10 +8,10 @@ var $        = require('gulp-load-plugins')(),
     path     = require('path'),
     join     = path.join,
 
-    APATH    = join(settings.platform + '.bundles', settings.assets.name),
+    APATH    = join(settings.application.pages, settings.assets.name),
     CSS      = join(APATH, '_' + settings.assets.name + '.css'),
     JS       = join(APATH, '_' + settings.assets.name + '.js'),
-    BUNDLES  = ['index'].map(function(bundle){ return join(settings.platform + '.bundles', bundle, bundle + '.html')}),
+    PAGES    = ['index'].map(function(page){ return join(settings.application.pages, page, page + '.html')}),
 
     V        = pkg.version,
     DNAME    = pkg.name + '_v' + V;
@@ -43,26 +43,26 @@ gulp.task('bem-scripts', function () {
 
 gulp.task('assets', ['styles', 'scripts']);
 
-gulp.task('bundles', function(){
-    gulp.src(BUNDLES)
+gulp.task('pages', function(){
+    gulp.src(PAGES)
         .pipe(gulp.dest(settings.public));
 });
 
 gulp.task('watch', function() {
     gulp.watch([
-            'design/**/**/*.styl',
-            'design/**/**/**/*.styl'
+            'design/{' + settings.application.levels + '}/**/*.styl',
+            'design/{' + settings.application.levels + '}/**/**/*.styl'
         ],  $.shell.task(['gulp bem-styles']));
 
     gulp.watch([
-            '{common.blocks,' + settings.platform + '.blocks}/*.js',
-            '{common.blocks,' + settings.platform + '.blocks}/**/*.js'
+            '{' + settings.application.levels + '}/*.js',
+            '{' + settings.application.levels + '}/**/*.js'
         ],  $.shell.task(['gulp bem-scripts']));
 
     gulp.watch([
-            settings.platform + '.bundles/**/*.bemjson.js',
-            '{common.blocks,' + settings.platform + '.blocks}/*.bemhtml',
-            '{common.blocks,' + settings.platform + '.blocks}/**/*.bemhtml'
+            settings.application.pages + '/**/*.bemjson.js',
+            '{' + settings.application.levels + '}/**/*.bemhtml',
+            '{' + settings.application.levels + '}/**/**/*.bemhtml'
         ],  $.shell.task(['gulp build']));
 });
 
@@ -90,7 +90,7 @@ gulp.task('sync', function(){
 });
 
 gulp.task('build', function () {
-    tsync('bem', ['bundles', 'assets']);
+    tsync('bem', ['pages', 'assets']);
 });
 
 gulp.task('default', function () {
