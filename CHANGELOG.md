@@ -1,5 +1,10 @@
 This CHANGELOG also available in [russian](https://github.com/verybigman/generator-bem/blob/master/CHANGELOG.ru.md).
 
+__2.0.0-beta1__:
+- new generator structure
+- new AngularJS modules paradigm
+- create AngularJS app in first step
+
 __1.1.6__:
 
 - update bem-protein version
