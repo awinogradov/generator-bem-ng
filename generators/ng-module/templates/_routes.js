@@ -5,9 +5,7 @@ angular.module('<%= _.slugify(appname) %>.<%= _.slugify(module) %>').config(['$s
         $stateProvider
             .state('<%= _.slugify(module) %>', {
                 url: '/<%= _.slugify(module) %>',
-                views: {
-                    '': { templateUrl: 'templates/<%= _.slugify(module) %>/#{template-name}.html' }
-                }
+                controller: '<%= _.capitalize(_.slugify(module)) %>Controller'
             });
     }
 ]);
