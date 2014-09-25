@@ -59,7 +59,7 @@ users
 - [Stylus](http://learnboost.github.io/stylus)
 - [AngularJS](https://angularjs.org)
 - [NodeJS](http://nodejs.org)
-- [markdown](https://en.wikipedia.org/wiki/Markdown)
+- [Markdown](https://en.wikipedia.org/wiki/Markdown)
 
 You can override them with [bem-tools techs](https://github.com/bem/bem-tools/tree/support/0.8.x/lib/techs/v2) in .bem/levels/\*.js files and also you can write you custom tech in .bem/levels/techs/\*.js.
 
