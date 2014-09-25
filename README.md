@@ -30,27 +30,28 @@ __Put all your CSS design to:__
 
 __ng-module example:__
 ```
-users
-    __controllers
-        _index
-            users__controllers_index.js
-            users__controllers_index.en.md
-            users__controllers_index.ru.md
-        _signin
-            users__controllers_singin.js
-        _signup
-            users__controllers_singup.js    
-    __directives
-        _awesome
-            users__directives_awesome.js
-    __factories
-    __services
-    __routes
-        users__routes.js
-    users.js
-    users.en.md
-    users.ru.md
-    users.deps.js
+application.blocks
+    users
+        __controllers
+            _index
+                users__controllers_index.js
+                users__controllers_index.en.md
+                users__controllers_index.ru.md
+            _signin
+                users__controllers_singin.js
+            _signup
+                users__controllers_singup.js
+        __directives
+            _awesome
+                users__directives_awesome.js
+        __factories
+        __services
+        __routes
+            users__routes.js
+        users.js
+        users.en.md
+        users.ru.md
+        users.deps.js
 ```
 
 ## Technologies
