@@ -1,7 +1,8 @@
 {
     "name": "<%= _.slugify(appname) %>",
     "dependencies": {
-        "bem-core": "v2.4.0"
+        "bem-core": "v2.4.0",
+        "bem-ng": "0.0.4"
     },
     "devDependencies": {}
 }

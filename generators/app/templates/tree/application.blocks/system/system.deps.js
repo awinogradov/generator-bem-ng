@@ -1,10 +1,11 @@
 ({
     mustDeps: [
-        {block: 'angularjs'}
+        {block: 'angularjs'},
     ],
     shouldDeps: [
+        {elem: 'module'},
         {elem: 'controllers', mods: {'system': true}},
         {elem: 'routes'},
-        {elem: 'directive', mods: {'awesome': true}}
+        {elem: 'directives', mods: {'awesome': true}}
     ]
 })

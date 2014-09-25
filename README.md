@@ -7,7 +7,6 @@ Awesome [Yeoman](http://yeoman.io) generator for your bem-projects.
 ### You can
 
 - make pretty bem-project structure: `yo bem`
-- extend you bem-project to AngularJS application: `yo bem:ng`
 - add new AngularJS module: `yo bem:ng-module users`
 - add new AngularJS controller: `yo bem:ng-controller users:main`
 - add new AngularJS directive: `yo bem:ng-directive users:awesome-directive`
@@ -20,7 +19,13 @@ Awesome [Yeoman](http://yeoman.io) generator for your bem-projects.
 
 ### Paradigm
 
-AngularJS modules is BEM blocks. Controllers, routes, services, directives and etc. is BEM elements. Require elements in \*.deps.js file.
+AngularJS modules is BEM blocks. Controllers, routes, services, directives and etc. is BEM elements. Elements required in modules by \*.deps.js file.
+__levels usage__:
+
+- common.blocks - use for override blocks from connected libraries
+- service.blocks - use for new blocks on this service
+- application.blocks - use for AngularJS modules
+- server.blocks - use for NodeJS server modules
 
 ### Blocks techs
 

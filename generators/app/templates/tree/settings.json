@@ -13,10 +13,6 @@
             "dir": "./public/assets"
         }
     },
-    "vendors": {
-        "name": "vendors",
-        "dir": "./libs"
-    },
     "browsers_support": [
         "last 2 versions",
         "ie 10",
@@ -30,9 +26,6 @@
         "pages" : {
             "dir" : "service.pages"
         }
-    },
-    "application" : {
-        "deps" : [ "angular" , "angular-ui-router", "bem-ng" ]
     },
     "server" : {
         "deps" : [ "express", "body-parser", "errorhandler", "morgan", "winston", "consolidate", "ejs" ]

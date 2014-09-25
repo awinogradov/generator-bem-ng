@@ -18,10 +18,12 @@
         {
             elem : 'content',
             tag : 'main',
-            attrs : { role: 'main' },
+            attrs : { role : 'main', 'ng-controller' : 'SystemController' },
             content : [
                 {
-                    tag : 'p', content : 'Find this in service.pages/index/index.bemjson.js'
+                    tag : 'p',
+                    attrs : { 'ng-awesome' : '' },
+                    content : 'Find this in service.pages/index/index.bemjson.js'
                 }
             ]
         },
@@ -29,13 +31,7 @@
             elem : 'footer',
             tag : 'footer',
             content : [
-                'License: ',
-                {
-                    block : 'link',
-                    target: '_blank',
-                    url : 'http://opensource.org/licenses/MIT',
-                    content : 'MIT'
-                }
+                'License: MIT'
             ]
         }
     ]
