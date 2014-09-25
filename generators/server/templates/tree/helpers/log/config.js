@@ -1,8 +1,7 @@
-/**
- * Created by verybigman on 01/04/14.
- */
+// MODULES =====================================================================
 var winston = require('winston');
 
+// LOGGER OVERRIDE =====================================================================
 function getLogger(module) {
 
     var path = module.filename.split('/').slice(-2).join('/');

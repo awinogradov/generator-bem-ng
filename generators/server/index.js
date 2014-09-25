@@ -17,7 +17,8 @@ var ServerGenerator = module.exports = function ServerGenerator(args, options, c
 util.inherits(ServerGenerator, yeoman.generators.NamedBase);
 
 ServerGenerator.prototype.server = function server() {
-    this.directory('tree', 'server');
+    this.directory('tree', 'server.blocks');
+    this.template('_server.js', 'server.js');
 };
 
 ServerGenerator.prototype.dependencies = function dependencies() {

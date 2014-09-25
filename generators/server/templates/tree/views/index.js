@@ -2,7 +2,6 @@
 var pkg      = require('../../package'),
     cons     = require('consolidate'),
     path     = require('path'),
-    settings = pkg._settings,
     join     = path.join;
 
 // VIEWS TEMPLATE ENGINE =======================================================

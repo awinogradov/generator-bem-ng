@@ -22,12 +22,14 @@
         "ios 6"
     ],
     "service" : {
-        "levels" : [ "common.blocks", "application.blocks" ],
+        "levels" : [ "common.blocks", "service.blocks", "application.blocks" ],
         "pages" : {
             "dir" : "service.pages"
         }
     },
     "server" : {
-        "deps" : [ "express", "body-parser", "errorhandler", "morgan", "winston", "consolidate", "ejs" ]
+        "deps" : [ "express", "body-parser", "errorhandler", "morgan", "winston", "consolidate", "ejs" ],
+        "env"  : "development",
+        "port" : 3000
     }
 }
