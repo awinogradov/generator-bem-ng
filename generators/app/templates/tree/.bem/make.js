@@ -21,7 +21,7 @@ MAKE.decl('BundleNode', {
             'stylus',
             'css',
             'bemhtml',
-            'browser.js+bemhtml',
+            'js',
             'html'
         ];
     },
@@ -33,11 +33,6 @@ MAKE.decl('BundleNode', {
     getLevels : function() {
         return [
             'libs/bem-core/common.blocks',
-            'libs/bem-core/desktop.blocks',
-            'libs/bem-components/common.blocks',
-            'libs/bem-components/desktop.blocks',
-            'libs/bem-components/design/common.blocks',
-            'libs/bem-components/design/desktop.blocks',
             'libs/bem-ng/common.blocks',
             'common.blocks',
             'design/common.blocks',

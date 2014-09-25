@@ -17,9 +17,9 @@ exports.getTechs = function() {
     };
 
     // use techs from bem-core library
-    ['bemhtml', 'vanilla.js', 'browser.js'].forEach(getTechResolver(techs, BEMCORE_TECHS));
+    ['bemhtml', 'md'].forEach(getTechResolver(techs, BEMCORE_TECHS));
 
     return techs;
 };
 
-exports.defaultTechs = ['stylus', 'browser.js', 'bemhtml', 'md'];
+exports.defaultTechs = ['stylus', 'js', 'bemhtml', 'md'];
