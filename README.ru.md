@@ -1,4 +1,4 @@
-# generator-bem [![Build Status](https://secure.travis-ci.org/verybigman/generator-bem.png?branch=master)](https://travis-ci.org/verybigman/generator-bem)
+# generator-bem [![Build Status](https://secure.travis-ci.org/verybigman/generator-bem.png?branch=angular)](https://travis-ci.org/verybigman/generator-bem)
 
 Необыкновенный генератор для [Yeoman](http://yeoman.io), который позволит вам использовать AngularJS в ваших БЭМ-проектах. Wow!
 
