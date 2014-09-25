@@ -2,46 +2,70 @@
 
 This README also available in [russian](https://github.com/verybigman/generator-bem/blob/master/README.ru.md).
 
-Awesome [Yeoman](http://yeoman.io) generator for your bem-projects.
+Awesome [Yeoman](http://yeoman.io) generator for your AngularJS flowered bem-projects. Wow!
 
-### You can
+## You can
 
 - make pretty bem-project structure: `yo bem`
-- add new AngularJS module: `yo bem:ng-module users`
-- add new AngularJS controller: `yo bem:ng-controller users:main`
-- add new AngularJS directive: `yo bem:ng-directive users:awesome-directive`
-- add new AngularJS service: `yo bem:ng-service users:awesome-service`
-- add new AngularJS factory: `yo bem:ng-factory users:awesome-factory`
+- create AngularJS modules: `yo bem:ng-module users`
 - extend you bem-angular-project to NodeJS application: `yo bem:server`
 - develop you bem-project with Gulp (take instruction from console): `gulp`
 - distribute project with Gulp: `gulp build`
 - get it now: `npm install -g generator-bem`
 
-### Paradigm
+## Paradigm
 
 AngularJS modules is BEM blocks. Controllers, routes, services, directives and etc. is BEM elements. Elements required in modules by \*.deps.js file.
-__levels usage__:
 
-- common.blocks - use for override blocks from connected libraries
-- service.blocks - use for new blocks on this service
-- application.blocks - use for AngularJS modules
-- server.blocks - use for NodeJS server modules
+__Levels usage:__
 
-### Blocks techs
+- _common.blocks_ - use for override blocks from connected libraries
+- _service.blocks_ - use for new blocks on this service
+- _application.blocks_ - use for AngularJS modules only
+- _server.blocks_ - use for NodeJS server modules
 
-- bemhtml
-- stylus
-- browser.js
-- node.js
-- md
+__Put all your CSS design to:__
+- _design/common.blocks_ - override libraries styles
+- _design/service.blocks_ - only this service styles
 
-You can override they with [bem-tools techs](https://github.com/bem/bem-tools/tree/support/0.8.x/lib/techs/v2) in
-.bem/levels/\*.js files and also you can write you custom tech in .bem/levels/techs/\*.js.
+__ng-module example:__
+```
+users
+    __controllers
+        _index
+            users__controllers_index.js
+            users__controllers_index.en.md
+            users__controllers_index.ru.md
+        _signin
+            users__controllers_singin.js
+        _signup
+            users__controllers_singup.js    
+    __directives
+        _awesome
+            users__directives_awesome.js
+    __factories
+    __services
+    __routes
+        users__routes.js
+    users.js
+    users.en.md
+    users.ru.md
+    users.deps.js
+```
+
+## Technologies
+
+- [BEMHTML](http://bem.info/technology/bemhtml/2.3.0/reference)
+- [Stylus](http://learnboost.github.io/stylus)
+- [AngularJS](https://angularjs.org)
+- [NodeJS](http://nodejs.org)
+- [markdown](https://en.wikipedia.org/wiki/Markdown)
+
+You can override them with [bem-tools techs](https://github.com/bem/bem-tools/tree/support/0.8.x/lib/techs/v2) in .bem/levels/\*.js files and also you can write you custom tech in .bem/levels/techs/\*.js.
 
 ### Dependencies
 
-Project contain [bem-core](https://github.com/bem/bem-core) and [bem-components](https://github.com/bem/bem-components)
-libs developed by guys from [Yandex](http://yandex.ru).
+Project contain [bem-core](https://github.com/bem/bem-core) and [bem-ng](https://github.com/verybigman/bem-ng) libs. [bem-core](https://github.com/bem/bem-core) was developed by guys from [Yandex](http://yandex.ru).
 
 ### Authors
 
