@@ -4,6 +4,7 @@
     favicon : 'favicon.ico',
     head : [{ elem : 'meta', attrs : { name : 'viewport', content : 'width=device-width, initial-scale=1.0' }}],
     styles : [{ elem : 'css', url : '<%= settings.assets.name %>/<%= settings.assets.styles.name %>' }],
+    scripts : [{ elem : 'js', url : '<%= settings.assets.name %>/<%= settings.assets.scripts.name %>' }],
     content : [
         {
             elem : 'header',
@@ -20,7 +21,7 @@
             attrs : { role: 'main' },
             content : [
                 {
-                    tag : 'p', content : 'Find this in <%= settings.platform %>.bundles/index/index.bemjson.js'
+                    tag : 'p', content : 'Find this in service.pages/index/index.bemjson.js'
                 }
             ]
         },
@@ -31,13 +32,11 @@
                 'License: ',
                 {
                     block : 'link',
+                    target: '_blank',
                     url : 'http://opensource.org/licenses/MIT',
                     content : 'MIT'
                 }
             ]
         }
-    ],
-    scripts : [
-        { elem : 'js', url : '<%= settings.assets.name %>/<%= settings.assets.scripts.name %>' }
     ]
 })

@@ -8,10 +8,10 @@ var $        = require('gulp-load-plugins')(),
     path     = require('path'),
     join     = path.join,
 
-    APATH    = join(settings.application.pages, settings.assets.name),
+    APATH    = join(settings.service.pages.dir, settings.assets.name),
     CSS      = join(APATH, '_' + settings.assets.name + '.css'),
     JS       = join(APATH, '_' + settings.assets.name + '.js'),
-    PAGES    = ['index'].map(function(page){ return join(settings.application.pages, page, page + '.html')}),
+    PAGES    = ['index'].map(function(page){ return join(settings.service.pages.dir, page, page + '.html')}),
 
     V        = pkg.version,
     DNAME    = pkg.name + '_v' + V;

@@ -1,13 +1,13 @@
 angular.module('<%= _.slugify(appname) %>.system').config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
-        // For unmatched routes:
+        // Unmatched routes:
         $urlRouterProvider.otherwise('/');
 
-        // states for my app
+        // states
         $stateProvider
-            .state('index', {
+            .state('root', {
                 url: '/',
-                templateUrl: 'templates/system/index.html'
+                controller: 'SystemController'
             });
     }
 ]);

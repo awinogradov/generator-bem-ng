@@ -28,7 +28,7 @@
     "service" : {
         "levels" : [ "common.blocks", "application.blocks" ],
         "pages" : {
-            "dir" : "application.pages"
+            "dir" : "service.pages"
         }
     },
     "application" : {

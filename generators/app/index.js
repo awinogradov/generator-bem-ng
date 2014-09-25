@@ -9,10 +9,9 @@ var cwd    = process.cwd(),
 var BemGenerator = module.exports = function BemGenerator(args, options, config) {
     yeoman.generators.Base.apply(this, arguments);
 
-    this.pkg      = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
-    this.settings = JSON.parse(this.readFileAsString(path.join(__dirname, '../app/templates/_settings.json')));
+    this.settings = this.src.readJSON('tree/settings.json');
     this.email    = this.user.git.email();
-    this.username = this.user.git.username || this.shell.exec('whoami').output.trim();
+    this.username = this.user.git.username;
 
     var _this = this;
 
@@ -37,15 +36,6 @@ var BemGenerator = module.exports = function BemGenerator(args, options, config)
 
 util.inherits(BemGenerator, yeoman.generators.Base);
 
-BemGenerator.prototype.configs = function configs() {
-    this.template('_package.json', 'package.json');
-    this.template('_bower.json', 'bower.json');
-    this.template('_settings.json', 'settings.json');
-    this.template('_gulpfile.js', 'gulpfile.js');
-};
-
 BemGenerator.prototype.app = function app() {
     this.directory('tree', cwd);
-    this.template('_index.bemjson.js', join(settings.service.pages, 'index', 'index.bemjson.js'));
-    this.template('_README.md', 'README.md');
 };

@@ -38,6 +38,7 @@ MAKE.decl('BundleNode', {
             'libs/bem-components/desktop.blocks',
             'libs/bem-components/design/common.blocks',
             'libs/bem-components/design/desktop.blocks',
+            'libs/bem-ng/common.blocks',
             'common.blocks',
             'design/common.blocks',
             'service.blocks',

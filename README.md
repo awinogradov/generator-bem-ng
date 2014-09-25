@@ -2,26 +2,36 @@
 
 This README also available in [russian](https://github.com/verybigman/generator-bem/blob/master/README.ru.md).
 
-Awesome [Yeoman](http://yeoman.io) generator for bem-projects.
+Awesome [Yeoman](http://yeoman.io) generator for your bem-projects.
 
-### With generator-bem you can:
+### You can
 
 - make pretty bem-project structure: `yo bem`
-- extend you bem-project to AngularJS application: `yo bem:ng-app`
-- add new AngularJS modules: `yo bem:ng-module users`
+- extend you bem-project to AngularJS application: `yo bem:ng`
+- add new AngularJS module: `yo bem:ng-module users`
+- add new AngularJS controller: `yo bem:ng-controller users:main`
+- add new AngularJS directive: `yo bem:ng-directive users:awesome-directive`
+- add new AngularJS service: `yo bem:ng-service users:awesome-service`
+- add new AngularJS factory: `yo bem:ng-factory users:awesome-factory`
 - extend you bem-angular-project to NodeJS application: `yo bem:server`
-- distribute project with Gulp: `bem make && gulp`
+- develop you bem-project with Gulp (take instruction from console): `gulp`
+- distribute project with Gulp: `gulp build`
 - get it now: `npm install -g generator-bem`
 
-### Default blocks techs
+### Paradigm
+
+AngularJS modules is BEM blocks. Controllers, routes, services, directives and etc. is BEM elements. Require elements in \*.deps.js file.
+
+### Blocks techs
 
 - bemhtml
-- roole
-- js
+- stylus
+- browser.js
+- node.js
 - md
 
 You can override they with [bem-tools techs](https://github.com/bem/bem-tools/tree/support/0.8.x/lib/techs/v2) in
-.bem/levels/*.js files and also you can write you custom tech in .bem/levels/techs/*.js.
+.bem/levels/\*.js files and also you can write you custom tech in .bem/levels/techs/\*.js.
 
 ### Dependencies
 
