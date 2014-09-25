@@ -24,5 +24,5 @@ require('./server/helpers/log')(app);
 require('./server/views')(app);
 
 http.createServer(app).listen(3000, function(){
-    log.info('Express for test started on localhost:3000');
+    log.info('Express for <%= _.slugify(appname) %> started on localhost:3000');
 });

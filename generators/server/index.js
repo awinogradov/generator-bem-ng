@@ -11,14 +11,13 @@ var ServerGenerator = module.exports = function ServerGenerator(args, options, c
 
     yeoman.generators.Base.apply(this, arguments);
 
-    this.settings = JSON.parse(this.readFileAsString(path.join(__dirname, '../app/templates/_settings.json')));
+    this.settings = this.dest.readJSON('settings.json');
 };
 
 util.inherits(ServerGenerator, yeoman.generators.NamedBase);
 
 ServerGenerator.prototype.server = function server() {
     this.directory('tree', 'server');
-    this.template('_app.js', 'app.js');
 };
 
 ServerGenerator.prototype.dependencies = function dependencies() {
@@ -32,7 +31,7 @@ ServerGenerator.prototype.dependencies = function dependencies() {
         npm
         .commands
         .install(settings.server.deps, function() {
-            console.log('\nExpress installed succesfully!');
+            console.log('\nExpress installed succesfully!\n');
 
             _this.log.write('').ok('Done!');
         });
