@@ -50,19 +50,19 @@ gulp.task('pages', function(){
 
 gulp.task('watch', function() {
     gulp.watch([
-            'design/{' + settings.application.levels + '}/**/*.styl',
-            'design/{' + settings.application.levels + '}/**/**/*.styl'
+            'design/{' + settings.service.levels + '}/**/*.styl',
+            'design/{' + settings.service.levels + '}/**/**/*.styl'
         ],  $.shell.task(['gulp bem-styles']));
 
     gulp.watch([
-            '{' + settings.application.levels + '}/*.js',
-            '{' + settings.application.levels + '}/**/*.js'
+            '{' + settings.service.levels + '}/*.js',
+            '{' + settings.service.levels + '}/**/*.js'
         ],  $.shell.task(['gulp bem-scripts']));
 
     gulp.watch([
-            settings.application.pages + '/**/*.bemjson.js',
-            '{' + settings.application.levels + '}/**/*.bemhtml',
-            '{' + settings.application.levels + '}/**/**/*.bemhtml'
+            settings.service.pages.dir + '/**/*.bemjson.js',
+            '{' + settings.service.levels + '}/**/*.bemhtml',
+            '{' + settings.service.levels + '}/**/**/*.bemhtml'
         ],  $.shell.task(['gulp build']));
 });
 
@@ -94,5 +94,5 @@ gulp.task('build', function () {
 });
 
 gulp.task('default', function () {
-    tsync('default', ['watch', 'sync']);
+    tsync('default', ['build', 'watch', 'sync']);
 });
