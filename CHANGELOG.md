@@ -1,5 +1,8 @@
 This CHANGELOG also available in [russian](https://github.com/verybigman/generator-bem/blob/master/CHANGELOG.ru.md).
 
+__2.0.0-beta2__:
+- some fixes
+
 __2.0.0-beta1__:
 - new generator structure
 - new AngularJS modules paradigm
