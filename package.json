@@ -9,7 +9,7 @@
     "yeoman",
     "generator",
     "angular",
-    "angularjs",
+    "angularjs"
   ],
   "homepage": "https://github.com/verybigman/generator-bem-ng",
   "bugs": "https://github.com/verybigman/generator-bem-ng/issues",
@@ -39,9 +39,5 @@
     "node": ">=0.10",
     "npm": ">=1.2.10"
   },
-  "licenses": [
-    {
-      "type": "MIT"
-    }
-  ]
+  "license": "MIT"
 }
