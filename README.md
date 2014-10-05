@@ -1,6 +1,6 @@
-# generator-bem-ng [![Build Status](https://secure.travis-ci.org/verybigman/generator-bem.png?branch=angular)](https://travis-ci.org/verybigman/generator-bem)
+# generator-bem-ng [![Build Status](https://secure.travis-ci.org/verybigman/generator-bem-ng.png?branch=master)](https://travis-ci.org/verybigman/generator-bem-ng)
 
-This README also available in [russian](https://github.com/verybigman/generator-bem/blob/angular/README.ru.md).
+This README also available in [russian](https://github.com/verybigman/generator-bem-ng/blob/master/README.ru.md).
 
 Awesome [Yeoman](http://yeoman.io) generator for your AngularJS flowered bem-projects. Wow!
 
