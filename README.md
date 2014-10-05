@@ -1,4 +1,4 @@
-# generator-bem [![Build Status](https://secure.travis-ci.org/verybigman/generator-bem.png?branch=angular)](https://travis-ci.org/verybigman/generator-bem)
+# generator-bem-ng [![Build Status](https://secure.travis-ci.org/verybigman/generator-bem.png?branch=angular)](https://travis-ci.org/verybigman/generator-bem)
 
 This README also available in [russian](https://github.com/verybigman/generator-bem/blob/angular/README.ru.md).
 
@@ -6,12 +6,11 @@ Awesome [Yeoman](http://yeoman.io) generator for your AngularJS flowered bem-pro
 
 ## You can
 
-- make pretty bem-project structure: `yo bem`
-- create AngularJS modules: `yo bem:ng-module users`
-- extend you bem-angular-project to NodeJS application: `yo bem:server`
+- make pretty bem-project structure: `yo bem-ng`
+- create AngularJS modules: `yo bem-ng:module users`
 - develop you bem-project with Gulp (take instruction from console): `gulp`
 - distribute project with Gulp: `gulp build`
-- get it now: `npm install -g generator-bem`
+- get it now: `npm install -g generator-bem-ng`
 
 ## Paradigm
 
@@ -28,7 +27,7 @@ __Put all your CSS design to:__
 - _design/common.blocks_ - override libraries styles
 - _design/service.blocks_ - only this service styles
 
-__ng-module example:__
+__module example:__
 ```
 application.blocks
     users
@@ -59,8 +58,6 @@ application.blocks
 - [BEMHTML](http://bem.info/technology/bemhtml/2.3.0/reference)
 - [Stylus](http://learnboost.github.io/stylus)
 - [AngularJS](https://angularjs.org)
-- [NodeJS](http://nodejs.org)
-- [Markdown](https://en.wikipedia.org/wiki/Markdown)
 
 You can override them with [bem-tools techs](https://github.com/bem/bem-tools/tree/support/0.8.x/lib/techs/v2) in .bem/levels/\*.js files and also you can write you custom tech in .bem/levels/techs/\*.js.
 

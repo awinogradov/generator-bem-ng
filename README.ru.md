@@ -1,15 +1,14 @@
-# generator-bem [![Build Status](https://secure.travis-ci.org/verybigman/generator-bem.png?branch=angular)](https://travis-ci.org/verybigman/generator-bem)
+# generator-bem-ng [![Build Status](https://secure.travis-ci.org/verybigman/generator-bem.png?branch=angular)](https://travis-ci.org/verybigman/generator-bem)
 
 Необыкновенный генератор для [Yeoman](http://yeoman.io), который позволит вам использовать AngularJS в ваших БЭМ-проектах. Wow!
 
 ## Навыки
 
-- базовая структура: `yo bem`
-- создание AngularJS модулей: `yo bem:ng-module users`
-- расширение до NodeJS приложения: `yo bem:server`
+- базовая структура: `yo bem-ng`
+- создание AngularJS модулей: `yo bem-ng:module users`
 - реалтайм разработка с Gulp (инструкции в консоли): `gulp`
 - финальная сборка с Gulp: `gulp build`
-- установка: `npm install -g generator-bem`
+- установка: `npm install -g generator-bem-ng`
 
 ## Парадигмы
 
@@ -57,8 +56,6 @@ application.blocks
 - [BEMHTML](http://bem.info/technology/bemhtml/2.3.0/reference)
 - [Stylus](http://learnboost.github.io/stylus)
 - [AngularJS](https://angularjs.org)
-- [NodeJS](http://nodejs.org)
-- [Markdown](https://en.wikipedia.org/wiki/Markdown)
 
 Вы можете использовать любые из [bem-tools techs](https://github.com/bem/bem-tools/tree/support/0.8.x/lib/techs/v2), объявив их в .bem/levels/\*.js файлах, а также вы можете написать свои технологии в .bem/levels/techs/\*.js.
 

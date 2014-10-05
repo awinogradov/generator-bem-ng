@@ -1,7 +1,7 @@
 {
-  "name": "generator-bem",
-  "version": "2.0.0-beta2",
-  "description": "A BEM generator for Yeoman",
+  "name": "generator-bem-ng",
+  "version": "2.0.0-beta3",
+  "description": "A BEM+AngularJS generator for Yeoman",
   "keywords": [
     "yeoman-generator",
     "bem",
@@ -10,20 +10,18 @@
     "generator",
     "angular",
     "angularjs",
-    "nodejs",
-    "node"
   ],
-  "homepage": "https://github.com/verybigman/generator-bem",
-  "bugs": "https://github.com/verybigman/generator-bem/issues",
+  "homepage": "https://github.com/verybigman/generator-bem-ng",
+  "bugs": "https://github.com/verybigman/generator-bem-ng/issues",
   "author": {
     "name": "Anton Winogradov",
     "email": "winogradovaa@gmail.com",
     "url": "https://github.com/verybigman"
   },
-  "main": "app/index.js",
+  "main": "generators/app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/verybigman/generator-bem.git"
+    "url": "git://github.com/verybigman/generator-bem-ng.git"
   },
   "dependencies": {
     "yeoman-generator": "0.17.6",

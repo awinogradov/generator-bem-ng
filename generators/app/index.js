@@ -6,7 +6,7 @@ var cwd    = process.cwd(),
     join   = path.join,
     yeoman = require('yeoman-generator');
 
-var BemGenerator = module.exports = function BemGenerator(args, options, config) {
+var BemNgGenerator = module.exports = function BemNgGenerator(args, options, config) {
     yeoman.generators.Base.apply(this, arguments);
 
     this.settings = this.src.readJSON('tree/settings.json');
@@ -34,8 +34,8 @@ var BemGenerator = module.exports = function BemGenerator(args, options, config)
     });
 };
 
-util.inherits(BemGenerator, yeoman.generators.Base);
+util.inherits(BemNgGenerator, yeoman.generators.Base);
 
-BemGenerator.prototype.app = function app() {
+BemNgGenerator.prototype.app = function app() {
     this.directory('tree', cwd);
 };
